@@ -105,13 +105,13 @@
 </div>
 
 <h1 id="红蓝染色法"><a href="#红蓝染色法" class="headerlink" title="红蓝染色法"></a>红蓝染色法</h1><p>再来细细体会一下红蓝染色法，以例题为例：</p>
-<p><strong><a class="link"   href="https://leetcode.cn/problems/find-first-and-last-position-of-element-in-sorted-array/" >34. 在排序数组中查找元素的第一个和最后一个位置 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></strong></p>
+<p><strong><a class="link" href="https://leetcode.cn/problems/find-first-and-last-position-of-element-in-sorted-array/">34. 在排序数组中查找元素的第一个和最后一个位置 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></strong></p>
 <ul>
 <li><p>给你一个按照非递减顺序排列的整数数组 <code>nums</code>，和一个目标值 <code>target</code>。请你找出给定目标值在数组中的开始位置和结束位置。</p>
 </li>
 <li><p>如果数组中不存在目标值 <code>target</code>，返回 <code>[-1, -1]</code>。</p>
 </li>
-<li><p>你必须设计并实现时间复杂度为 $O(logn)$ 的算法解决此问题。</p>
+<li><p>你必须设计并实现时间复杂度为 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="7.695ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 3401 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D442" d="M740 435Q740 320 676 213T511 42T304 -22Q207 -22 138 35T51 201Q50 209 50 244Q50 346 98 438T227 601Q351 704 476 704Q514 704 524 703Q621 689 680 617T740 435ZM637 476Q637 565 591 615T476 665Q396 665 322 605Q242 542 200 428T157 216Q157 126 200 73T314 19Q404 19 485 98T608 313Q637 408 637 476Z"></path></g><g data-mml-node="mo" transform="translate(763,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mi" transform="translate(1152,0)"><path data-c="1D459" d="M117 59Q117 26 142 26Q179 26 205 131Q211 151 215 152Q217 153 225 153H229Q238 153 241 153T246 151T248 144Q247 138 245 128T234 90T214 43T183 6T137 -11Q101 -11 70 11T38 85Q38 97 39 102L104 360Q167 615 167 623Q167 626 166 628T162 632T157 634T149 635T141 636T132 637T122 637Q112 637 109 637T101 638T95 641T94 647Q94 649 96 661Q101 680 107 682T179 688Q194 689 213 690T243 693T254 694Q266 694 266 686Q266 675 193 386T118 83Q118 81 118 75T117 65V59Z"></path></g><g data-mml-node="mi" transform="translate(1450,0)"><path data-c="1D45C" d="M201 -11Q126 -11 80 38T34 156Q34 221 64 279T146 380Q222 441 301 441Q333 441 341 440Q354 437 367 433T402 417T438 387T464 338T476 268Q476 161 390 75T201 -11ZM121 120Q121 70 147 48T206 26Q250 26 289 58T351 142Q360 163 374 216T388 308Q388 352 370 375Q346 405 306 405Q243 405 195 347Q158 303 140 230T121 120Z"></path></g><g data-mml-node="mi" transform="translate(1935,0)"><path data-c="1D454" d="M311 43Q296 30 267 15T206 0Q143 0 105 45T66 160Q66 265 143 353T314 442Q361 442 401 394L404 398Q406 401 409 404T418 412T431 419T447 422Q461 422 470 413T480 394Q480 379 423 152T363 -80Q345 -134 286 -169T151 -205Q10 -205 10 -137Q10 -111 28 -91T74 -71Q89 -71 102 -80T116 -111Q116 -121 114 -130T107 -144T99 -154T92 -162L90 -164H91Q101 -167 151 -167Q189 -167 211 -155Q234 -144 254 -122T282 -75Q288 -56 298 -13Q311 35 311 43ZM384 328L380 339Q377 350 375 354T369 368T359 382T346 393T328 402T306 405Q262 405 221 352Q191 313 171 233T151 117Q151 38 213 38Q269 38 323 108L331 118L384 328Z"></path></g><g data-mml-node="mi" transform="translate(2412,0)"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(3012,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container> 的算法解决此问题。</p>
 </li>
 </ul>
 <div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">示例 1：</span><br><span class="line">输入：nums = [5,7,7,8,8,10], target = 8</span><br><span class="line">输出：[3,4]</span><br><span class="line"></span><br><span class="line">示例 2：</span><br><span class="line">输入：nums = [5,7,7,8,8,10], target = 6</span><br><span class="line">输出：[-1,-1]</span><br><span class="line"></span><br><span class="line">示例 3：</span><br><span class="line">输入：nums = [], target = 0</span><br><span class="line">输出：[-1,-1]</span><br></pre></td></tr></table></figure></div>
@@ -123,37 +123,37 @@
 <li>[L , R] 之间为 无色区域</li>
 <li>红色区域 和 蓝色区域 的判断条件是 互补的</li>
 <li>无色区域 表示 不确定区域</li>
-<li>L &lt;&#x3D; R 均合法 <strong>不确定区间不为空</strong></li>
+<li>L &lt;= R 均合法 <strong>不确定区间不为空</strong></li>
 </ul>
-<p>每次判断的索引为 $\lfloor \frac{L+R}2 \rfloor$</p>
+<p>每次判断的索引为 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.781ex;" xmlns="http://www.w3.org/2000/svg" width="6.553ex" height="2.774ex" role="img" focusable="false" viewBox="0 -880.9 2896.4 1225.9"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mo"><path data-c="230A" d="M174 734Q174 735 175 737T177 740T180 744T184 747T189 749T196 750Q206 748 214 735V-210H310H373Q401 -210 411 -213T422 -230T411 -247T369 -251Q362 -251 338 -251T298 -250H190Q178 -246 174 -234V734Z"></path></g><g data-mml-node="mfrac" transform="translate(444,0)"><g data-mml-node="mrow" transform="translate(220,398) scale(0.707)"><g data-mml-node="mi"><path data-c="1D43F" d="M228 637Q194 637 192 641Q191 643 191 649Q191 673 202 682Q204 683 217 683Q271 680 344 680Q485 680 506 683H518Q524 677 524 674T522 656Q517 641 513 637H475Q406 636 394 628Q387 624 380 600T313 336Q297 271 279 198T252 88L243 52Q243 48 252 48T311 46H328Q360 46 379 47T428 54T478 72T522 106T564 161Q580 191 594 228T611 270Q616 273 628 273H641Q647 264 647 262T627 203T583 83T557 9Q555 4 553 3T537 0T494 -1Q483 -1 418 -1T294 0H116Q32 0 32 10Q32 17 34 24Q39 43 44 45Q48 46 59 46H65Q92 46 125 49Q139 52 144 61Q147 65 216 339T285 628Q285 635 228 637Z"></path></g><g data-mml-node="mo" transform="translate(681,0)"><path data-c="2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path></g><g data-mml-node="mi" transform="translate(1459,0)"><path data-c="1D445" d="M230 637Q203 637 198 638T193 649Q193 676 204 682Q206 683 378 683Q550 682 564 680Q620 672 658 652T712 606T733 563T739 529Q739 484 710 445T643 385T576 351T538 338L545 333Q612 295 612 223Q612 212 607 162T602 80V71Q602 53 603 43T614 25T640 16Q668 16 686 38T712 85Q717 99 720 102T735 105Q755 105 755 93Q755 75 731 36Q693 -21 641 -21H632Q571 -21 531 4T487 82Q487 109 502 166T517 239Q517 290 474 313Q459 320 449 321T378 323H309L277 193Q244 61 244 59Q244 55 245 54T252 50T269 48T302 46H333Q339 38 339 37T336 19Q332 6 326 0H311Q275 2 180 2Q146 2 117 2T71 2T50 1Q33 1 33 10Q33 12 36 24Q41 43 46 45Q50 46 61 46H67Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628Q287 635 230 637ZM630 554Q630 586 609 608T523 636Q521 636 500 636T462 637H440Q393 637 386 627Q385 624 352 494T319 361Q319 360 388 360Q466 361 492 367Q556 377 592 426Q608 449 619 486T630 554Z"></path></g></g><g data-mml-node="mn" transform="translate(827.4,-345) scale(0.707)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g><rect width="1768.4" height="60" x="120" y="220"></rect></g><g data-mml-node="mo" transform="translate(2452.4,0)"><path data-c="230B" d="M229 734Q229 735 230 737T232 740T235 744T239 747T244 749T251 750Q262 748 269 735V-235Q266 -240 256 -249L147 -250H77Q43 -250 32 -247T21 -230T32 -213T72 -209Q79 -209 99 -209T133 -210H229V734Z"></path></g></g></g></svg></mjx-container></p>
 <p><strong>Shit Idea</strong><br>对于这题，查找两次，一次查出第一个，另一次查出最后一个</p>
 <p>对于第一个，判断条件为：</p>
 <ul>
 <li>红色: &lt; target</li>
-<li>蓝色: &gt;&#x3D; target</li>
+<li>蓝色: &gt;= target</li>
 <li>L 左侧 均为 小于</li>
 <li>R 右侧 均为 大于等于</li>
-<li>最终 L &#x3D; R + 1，L 在 R 右侧</li>
+<li>最终 L = R + 1，L 在 R 右侧</li>
 <li>那么 L 所指的有可能是答案</li>
 </ul>
 <p>对于最后一个，判断条件为：</p>
 <ul>
-<li>红色: &lt;&#x3D; target</li>
+<li>红色: &lt;= target</li>
 <li>蓝色: &gt; target</li>
 <li>L 左侧 均为 小于等于</li>
 <li>R 右侧 均为 大于</li>
-<li>最终 L &#x3D; R + 1，R 在 L 左侧</li>
+<li>最终 L = R + 1，R 在 L 左侧</li>
 <li>那么 R 所指的有可能是答案</li>
 </ul>
 <p><strong>Shit Code</strong></p>
-<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">searchRange</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> &#123;<span class="built_in">start</span>(nums, target), <span class="built_in">end</span>(nums, target)&#125;;        </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">start</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target)</span></span>&#123;</span><br><span class="line">        <span class="type">int</span> l = <span class="number">0</span>, r = nums.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(l &lt;= r)&#123;</span><br><span class="line">            <span class="type">int</span> mid = l + (r - l) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(nums[mid] &gt;= target)</span><br><span class="line">                r = mid - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                l = mid + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(l&lt;<span class="number">0</span> || l&gt;=nums.<span class="built_in">size</span>()) <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">return</span> nums[l] == target ? l : <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">end</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target)</span></span>&#123;</span><br><span class="line">        <span class="type">int</span> l = <span class="number">0</span>, r = nums.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(l &lt;= r)&#123;</span><br><span class="line">            <span class="type">int</span> mid = l + (r - l) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(nums[mid] &gt; target)</span><br><span class="line">                r = mid - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                l = mid + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(r&lt;<span class="number">0</span> || r&gt;=nums.<span class="built_in">size</span>()) <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">return</span> nums[r] == target ? r : <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> {</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">searchRange</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target)</span> </span>{</span><br><span class="line">        <span class="keyword">return</span> {<span class="built_in">start</span>(nums, target), <span class="built_in">end</span>(nums, target)};        </span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">start</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target)</span></span>{</span><br><span class="line">        <span class="type">int</span> l = <span class="number">0</span>, r = nums.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(l &lt;= r){</span><br><span class="line">            <span class="type">int</span> mid = l + (r - l) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(nums[mid] &gt;= target)</span><br><span class="line">                r = mid - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                l = mid + <span class="number">1</span>;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">if</span>(l&lt;<span class="number">0</span> || l&gt;=nums.<span class="built_in">size</span>()) <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">return</span> nums[l] == target ? l : <span class="number">-1</span>;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">end</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target)</span></span>{</span><br><span class="line">        <span class="type">int</span> l = <span class="number">0</span>, r = nums.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(l &lt;= r){</span><br><span class="line">            <span class="type">int</span> mid = l + (r - l) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(nums[mid] &gt; target)</span><br><span class="line">                r = mid - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                l = mid + <span class="number">1</span>;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">if</span>(r&lt;<span class="number">0</span> || r&gt;=nums.<span class="built_in">size</span>()) <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">return</span> nums[r] == target ? r : <span class="number">-1</span>;</span><br><span class="line">    }</span><br><span class="line">};</span><br></pre></td></tr></table></figure></div>
 
 <p><strong>Good Idea</strong><br>其实，与其查两次，每次条件不同，不如转换为每次查的数字不同</p>
 <ul>
 <li>第一次查 target</li>
 <li>第二次查 target + 1<br><em>Ling’s Idea</em></li>
 </ul>
-<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">searchRange</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> start = <span class="built_in">find</span>(nums, target);</span><br><span class="line">        <span class="keyword">if</span>(start == nums.<span class="built_in">size</span>() || nums[start] != target)</span><br><span class="line">            <span class="keyword">return</span> &#123;<span class="number">-1</span>, <span class="number">-1</span>&#125;;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> &#123;start, <span class="built_in">find</span>(nums, target + <span class="number">1</span>) - <span class="number">1</span>&#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">find</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target)</span></span>&#123;</span><br><span class="line">        <span class="type">int</span> l = <span class="number">0</span>, r = nums.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(l &lt;= r)&#123;</span><br><span class="line">            <span class="type">int</span> mid = l + (r - l) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(nums[mid] &gt;= target)</span><br><span class="line">                r = mid - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                l = mid + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> l;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> {</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">searchRange</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target)</span> </span>{</span><br><span class="line">        <span class="type">int</span> start = <span class="built_in">find</span>(nums, target);</span><br><span class="line">        <span class="keyword">if</span>(start == nums.<span class="built_in">size</span>() || nums[start] != target)</span><br><span class="line">            <span class="keyword">return</span> {<span class="number">-1</span>, <span class="number">-1</span>};</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> {start, <span class="built_in">find</span>(nums, target + <span class="number">1</span>) - <span class="number">1</span>};</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">find</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target)</span></span>{</span><br><span class="line">        <span class="type">int</span> l = <span class="number">0</span>, r = nums.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(l &lt;= r){</span><br><span class="line">            <span class="type">int</span> mid = l + (r - l) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(nums[mid] &gt;= target)</span><br><span class="line">                r = mid - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                l = mid + <span class="number">1</span>;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> l;</span><br><span class="line">    }</span><br><span class="line">};</span><br></pre></td></tr></table></figure></div>
 
 <h2 id="左闭右开写法"><a href="#左闭右开写法" class="headerlink" title="左闭右开写法"></a>左闭右开写法</h2><p>对于两个指针 L 和 R</p>
 <ul>
@@ -165,7 +165,7 @@
 <li>L &lt; R 均合法</li>
 </ul>
 <p><strong>Code</strong></p>
-<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">searchRange</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> start = <span class="built_in">find</span>(nums, target);</span><br><span class="line">        <span class="keyword">if</span>(start == nums.<span class="built_in">size</span>() || nums[start] != target)</span><br><span class="line">            <span class="keyword">return</span> &#123;<span class="number">-1</span>, <span class="number">-1</span>&#125;;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> &#123;start, <span class="built_in">find</span>(nums, target + <span class="number">1</span>) - <span class="number">1</span>&#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">find</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target)</span></span>&#123;</span><br><span class="line">        <span class="type">int</span> l = <span class="number">0</span>, r = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">while</span>(l &lt; r)&#123;</span><br><span class="line">            <span class="type">int</span> mid = r - (r - l) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(nums[mid] &lt; target)</span><br><span class="line">                l = mid + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                r = mid;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> r;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> {</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">searchRange</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target)</span> </span>{</span><br><span class="line">        <span class="type">int</span> start = <span class="built_in">find</span>(nums, target);</span><br><span class="line">        <span class="keyword">if</span>(start == nums.<span class="built_in">size</span>() || nums[start] != target)</span><br><span class="line">            <span class="keyword">return</span> {<span class="number">-1</span>, <span class="number">-1</span>};</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> {start, <span class="built_in">find</span>(nums, target + <span class="number">1</span>) - <span class="number">1</span>};</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">find</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target)</span></span>{</span><br><span class="line">        <span class="type">int</span> l = <span class="number">0</span>, r = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">while</span>(l &lt; r){</span><br><span class="line">            <span class="type">int</span> mid = r - (r - l) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(nums[mid] &lt; target)</span><br><span class="line">                l = mid + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                r = mid;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> r;</span><br><span class="line">    }</span><br><span class="line">};</span><br></pre></td></tr></table></figure></div>
 
 <h2 id="左开右闭写法"><a href="#左开右闭写法" class="headerlink" title="左开右闭写法"></a>左开右闭写法</h2><p>对于两个指针 L 和 R</p>
 <ul>
@@ -177,7 +177,7 @@
 <li>L &lt; R 均合法</li>
 </ul>
 <p><strong>Code</strong></p>
-<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">searchRange</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> start = <span class="built_in">find</span>(nums, target);</span><br><span class="line">        <span class="keyword">if</span>(start == nums.<span class="built_in">size</span>() || nums[start] != target)</span><br><span class="line">            <span class="keyword">return</span> &#123;<span class="number">-1</span>, <span class="number">-1</span>&#125;;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> &#123;start, <span class="built_in">find</span>(nums, target + <span class="number">1</span>) - <span class="number">1</span>&#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">find</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target)</span></span>&#123;</span><br><span class="line">        <span class="type">int</span> l = <span class="number">-1</span>, r = nums.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(l &lt; r)&#123;</span><br><span class="line">            <span class="type">int</span> mid = r - (r - l) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(nums[mid] &lt; target)</span><br><span class="line">                l = mid;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                r = mid - <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> l + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> {</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">searchRange</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target)</span> </span>{</span><br><span class="line">        <span class="type">int</span> start = <span class="built_in">find</span>(nums, target);</span><br><span class="line">        <span class="keyword">if</span>(start == nums.<span class="built_in">size</span>() || nums[start] != target)</span><br><span class="line">            <span class="keyword">return</span> {<span class="number">-1</span>, <span class="number">-1</span>};</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> {start, <span class="built_in">find</span>(nums, target + <span class="number">1</span>) - <span class="number">1</span>};</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">find</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target)</span></span>{</span><br><span class="line">        <span class="type">int</span> l = <span class="number">-1</span>, r = nums.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(l &lt; r){</span><br><span class="line">            <span class="type">int</span> mid = r - (r - l) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(nums[mid] &lt; target)</span><br><span class="line">                l = mid;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                r = mid - <span class="number">1</span>;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> l + <span class="number">1</span>;</span><br><span class="line">    }</span><br><span class="line">};</span><br></pre></td></tr></table></figure></div>
 
 <h2 id="开区间写法"><a href="#开区间写法" class="headerlink" title="开区间写法"></a>开区间写法</h2><p>对于两个指针 L 和 R</p>
 <ul>
@@ -189,34 +189,28 @@
 <li>L &lt; R - 1 均合法</li>
 </ul>
 <p><strong>Code</strong></p>
-<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">searchRange</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> start = <span class="built_in">find</span>(nums, target);</span><br><span class="line">        <span class="keyword">if</span>(start == nums.<span class="built_in">size</span>() || nums[start] != target)</span><br><span class="line">            <span class="keyword">return</span> &#123;<span class="number">-1</span>, <span class="number">-1</span>&#125;;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> &#123;start, <span class="built_in">find</span>(nums, target + <span class="number">1</span>) - <span class="number">1</span>&#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">find</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target)</span></span>&#123;</span><br><span class="line">        <span class="type">int</span> l = <span class="number">-1</span>, r = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">while</span>(l &lt; r - <span class="number">1</span>)&#123;</span><br><span class="line">            <span class="type">int</span> mid = l + (r - l) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(nums[mid] &lt; target)</span><br><span class="line">                l = mid;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                r = mid;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> l + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> {</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">searchRange</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target)</span> </span>{</span><br><span class="line">        <span class="type">int</span> start = <span class="built_in">find</span>(nums, target);</span><br><span class="line">        <span class="keyword">if</span>(start == nums.<span class="built_in">size</span>() || nums[start] != target)</span><br><span class="line">            <span class="keyword">return</span> {<span class="number">-1</span>, <span class="number">-1</span>};</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> {start, <span class="built_in">find</span>(nums, target + <span class="number">1</span>) - <span class="number">1</span>};</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">find</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target)</span></span>{</span><br><span class="line">        <span class="type">int</span> l = <span class="number">-1</span>, r = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">while</span>(l &lt; r - <span class="number">1</span>){</span><br><span class="line">            <span class="type">int</span> mid = l + (r - l) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(nums[mid] &lt; target)</span><br><span class="line">                l = mid;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                r = mid;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> l + <span class="number">1</span>;</span><br><span class="line">    }</span><br><span class="line">};</span><br></pre></td></tr></table></figure></div>
 
-<h2 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h2><ul>
-<li><a class="link"   href="https://leetcode.cn/problems/find-peak-element/description/" >162. 寻找峰值 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
-<li><a class="link"   href="https://leetcode.cn/problems/find-minimum-in-rotated-sorted-array/" >153. 寻找旋转排序数组中的最小值 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
-<li><a class="link"   href="https://leetcode.cn/problems/search-in-rotated-sorted-array/" >33. 搜索旋转排序数组 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
-<li><a class="link"   href="https://leetcode.cn/problems/find-peak-element/description/" >162. 寻找峰值 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
+<h1 id="更多题目"><a href="#更多题目" class="headerlink" title="更多题目"></a>更多题目</h1><h2 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h2><ul>
+<li><a class="link" href="https://leetcode.cn/problems/find-peak-element/">162. 寻找峰值 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>  ✓</li>
+<li><a class="link" href="https://leetcode.cn/problems/find-minimum-in-rotated-sorted-array/">153. 寻找旋转排序数组中的最小值 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
+<li><a class="link" href="https://leetcode.cn/problems/search-in-rotated-sorted-array/">33. 搜索旋转排序数组 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
+<li><a class="link" href="https://leetcode.cn/problems/single-element-in-a-sorted-array/">540. 有序数组中的单一元素 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
 </ul>
-<h3 id="更多题目"><a href="#更多题目" class="headerlink" title="更多题目"></a>更多题目</h3><h4 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h4><ul>
-<li><a class="link"   href="https://leetcode.cn/problems/find-peak-element/" >162. 寻找峰值 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
-<li><a class="link"   href="https://leetcode.cn/problems/find-minimum-in-rotated-sorted-array/" >153. 寻找旋转排序数组中的最小值 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
-<li><a class="link"   href="https://leetcode.cn/problems/search-in-rotated-sorted-array/" >33. 搜索旋转排序数组 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
-<li><a class="link"   href="https://leetcode.cn/problems/single-element-in-a-sorted-array/" >540. 有序数组中的单一元素 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
-</ul>
-<h4 id="二分答案（按照难度分排序）"><a href="#二分答案（按照难度分排序）" class="headerlink" title="二分答案（按照难度分排序）"></a>二分答案（按照难度分排序）</h4><ul>
-<li><a class="link"   href="https://leetcode.cn/problems/koko-eating-bananas/" >875. 爱吃香蕉的珂珂 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
-<li><a class="link"   href="https://leetcode.cn/problems/find-the-smallest-divisor-given-a-threshold/" >1283. 使结果不超过阈值的最小除数 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
-<li><a class="link"   href="https://leetcode.cn/problems/minimum-time-to-complete-trips/" >2187. 完成旅途的最少时间 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
-<li><a class="link"   href="https://leetcode.cn/problems/maximum-candies-allocated-to-k-children/" >2226. 每个小孩最多能分到多少糖果 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
-<li><a class="link"   href="https://leetcode.cn/problems/minimum-speed-to-arrive-on-time/" >1870. 准时到达的列车最小时速 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
-<li><a class="link"   href="https://leetcode.cn/problems/capacity-to-ship-packages-within-d-days/" >1011. 在 D 天内送达包裹的能力 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
-<li><a class="link"   href="https://leetcode.cn/problems/minimized-maximum-of-products-distributed-to-any-store/" >2064. 分配给商店的最多商品的最小值 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
-<li><a class="link"   href="https://leetcode.cn/problems/minimum-limit-of-balls-in-a-bag/" >1760. 袋子里最少数目的球 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
-<li><a class="link"   href="https://leetcode.cn/problems/minimum-number-of-days-to-make-m-bouquets/" >1482. 制作 m 束花所需的最少天数 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
-<li><a class="link"   href="https://leetcode.cn/problems/furthest-building-you-can-reach/" >1642. 可以到达的最远建筑 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
-<li><a class="link"   href="https://leetcode.cn/problems/maximum-number-of-removable-characters/" >1898. 可移除字符的最大数目 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
-<li><a class="link"   href="https://leetcode.cn/problems/swim-in-rising-water/" >778. 水位上升的泳池中游泳 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
-<li><a class="link"   href="https://leetcode.cn/problems/escape-the-spreading-fire/" >2258. 逃离火灾 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
+<h2 id="二分答案（按照难度分排序）"><a href="#二分答案（按照难度分排序）" class="headerlink" title="二分答案（按照难度分排序）"></a>二分答案（按照难度分排序）</h2><ul>
+<li><a class="link" href="https://leetcode.cn/problems/koko-eating-bananas/">875. 爱吃香蕉的珂珂 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
+<li><a class="link" href="https://leetcode.cn/problems/find-the-smallest-divisor-given-a-threshold/">1283. 使结果不超过阈值的最小除数 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
+<li><a class="link" href="https://leetcode.cn/problems/minimum-time-to-complete-trips/">2187. 完成旅途的最少时间 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
+<li><a class="link" href="https://leetcode.cn/problems/maximum-candies-allocated-to-k-children/">2226. 每个小孩最多能分到多少糖果 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
+<li><a class="link" href="https://leetcode.cn/problems/minimum-speed-to-arrive-on-time/">1870. 准时到达的列车最小时速 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
+<li><a class="link" href="https://leetcode.cn/problems/capacity-to-ship-packages-within-d-days/">1011. 在 D 天内送达包裹的能力 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
+<li><a class="link" href="https://leetcode.cn/problems/minimized-maximum-of-products-distributed-to-any-store/">2064. 分配给商店的最多商品的最小值 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
+<li><a class="link" href="https://leetcode.cn/problems/minimum-limit-of-balls-in-a-bag/">1760. 袋子里最少数目的球 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
+<li><a class="link" href="https://leetcode.cn/problems/minimum-number-of-days-to-make-m-bouquets/">1482. 制作 m 束花所需的最少天数 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
+<li><a class="link" href="https://leetcode.cn/problems/furthest-building-you-can-reach/">1642. 可以到达的最远建筑 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
+<li><a class="link" href="https://leetcode.cn/problems/maximum-number-of-removable-characters/">1898. 可移除字符的最大数目 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
+<li><a class="link" href="https://leetcode.cn/problems/swim-in-rising-water/">778. 水位上升的泳池中游泳 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
+<li><a class="link" href="https://leetcode.cn/problems/escape-the-spreading-fire/">2258. 逃离火灾 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
 </ul>
 ]]></content>
       <categories>
@@ -225,139 +219,6 @@
       <tags>
         <tag>二分查找</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>A Survey on Advanced Persistent Threats: Techniques, Solutions, Challenges, and Research Opportunities</title>
-    <url>/2023/10/03/Papers/01-A-survey-on-APT/</url>
-    <content><![CDATA[<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><ul>
-<li>APT攻击越来越深入</li>
-<li>很难实现全攻击面的APT检测</li>
-<li>本文介绍了各个阶段可能的攻击方法</li>
-</ul>
-<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><ul>
-<li>APT防御应该在各个阶段</li>
-</ul>
-<h2 id="Section-Ⅱ-Definition-of-APT"><a href="#Section-Ⅱ-Definition-of-APT" class="headerlink" title="Section Ⅱ : Definition of APT"></a>Section Ⅱ : Definition of APT</h2><h3 id="Advanced-Persistent-Threat"><a href="#Advanced-Persistent-Threat" class="headerlink" title="Advanced Persistent Threat"></a>Advanced Persistent Threat</h3><ul>
-<li>Advanced : 攻击者很rich，有高级工具可以使用，保证攻击的持久性和有效性</li>
-<li>Persistent : 一旦进入系统，长时间停留，依靠各种手段绕过检测</li>
-<li>Threat : 收集敏感数据</li>
-</ul>
-<h3 id="APT-or-Targeted-Attack"><a href="#APT-or-Targeted-Attack" class="headerlink" title="APT or Targeted Attack ?"></a>APT or Targeted Attack ?</h3><p>APT攻击与传统攻击的主要区别<br><a href="https://imgse.com/i/pPOpBoq"><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://z1.ax1x.com/2023/10/03/pPOpBoq.md.png"
-                      alt="pPOpBoq.md.png"
-                ></a></p>
-<p>如下满足其一则不属于 APT attack：</p>
-<ul>
-<li>攻击有多种预防措施</li>
-<li>攻击者不需要为了防御做过多的准备</li>
-<li>攻击在其变体中没有表现出任何新特性</li>
-</ul>
-<p>NIST(National Institute of Standards and Technology)描述的APT攻击的三个目标：</p>
-<ul>
-<li>Steal Organization Data</li>
-<li>Undermine Organization’s Critical Aspects</li>
-<li>Position for Future</li>
-</ul>
-<h3 id="How-APT-attacks-are-made"><a href="#How-APT-attacks-are-made" class="headerlink" title="How APT attacks are made?"></a>How APT attacks are made?</h3><p>APT Attack Tree<br>文章作者归纳了一棵通用攻击树，大概包含APT攻击所需要实施的步骤，并分别根据NIST的三个目标做了细化<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://z1.ax1x.com/2023/10/03/pPOPFds.md.png"
-                      alt="pPOPFds.md.png"
-                ></p>
-<p>在结合了其他文章后，作者归纳了如下流程图：<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://z1.ax1x.com/2023/10/03/pPOPaOe.md.png"
-                      alt="pPOPaOe.md.png"
-                ></p>
-<div class="note-large red"><div class="notel-title"><p>侦察</p>
-</div><div class="notel-content"><p>以被动攻击为主，作为前期情报搜集工作，利用社工、渗透测试等方式，了解网络拓扑以及相关信息，为后期做准备。</p>
-</div></div>
-
-<div class="note-large red"><div class="notel-title"><p>建立落脚点</p>
-</div><div class="notel-content"><p>在前期侦察过程后，能够发现设施的脆弱性，尝试利用脆弱性干到内网里。通常包括如下手段：</p>
-<ul>
-<li>已知漏洞利用，包括已经在用户端中安装的软件存在的可利用的漏洞</li>
-<li>恶意软件，通过在用户端运行定制开发的恶意软件达到攻击效果</li>
-<li>网络钓鱼，针对特定目标发送钓鱼邮件，负载恶意软件，用户在运行或下载后使攻击者进驻网络</li>
-<li>0day漏洞，程序存在的漏洞，但并未被公开修复，且未被告知，这种利用方式不多但往往很致命</li>
-<li>网络下载</li>
-<li>水坑攻击，字面意思，在目标必经之路上设置陷阱，通常是在目标经常使用的网站中注入陷阱。目标一旦访问该网站，就会下载恶意负载，帮助攻击者进入内网</li>
-</ul>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://z1.ax1x.com/2023/10/04/pPOgcCT.md.png"
-                      alt="pPOgcCT.md.png"
-                ></p>
-<p>攻击者一旦进入到内网中，就会低调行事，尝试建立 C&amp;C (Commadn and Control) 通信通道，以部署后续攻击，在此期间，程序要防止自己被检测工具发现<br>大多数恶意程序通过 DNS 服务来进行定位，以向总部发出自己的位置。</p>
-</div></div>
-
-<div class="note-large red"><div class="notel-title"><p>横向探索&#x2F;不被发现</p>
-</div><div class="notel-content"><p>一旦进入目标系统，获得了其访问权限，则可以传播到内网的其他系统中，访问更多资源。<br>有时需要提权、密钥转储等技术以获得给更多信息。具体所选择的方法取决于具体环境。</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://z1.ax1x.com/2023/10/04/pPOgJ4f.md.png"
-                      alt="pPOgJ4f.md.png"
-                ></p>
-<p>文章提到了一些密码工具有：mimikatz、Windows Credential Editor<br>(WCE)<br>其核心是在内存中解析并提取 Windows本地安全授权(LSA)</p>
-</div></div>
-
-<div class="note-large red"><div class="notel-title"><p>报告信息&#x2F;实施拦截</p>
-</div><div class="notel-content"><p>攻击者将收集到的数据输出到 C&amp;C 服务器，由于大多数 IDS 仅对入口检测，而不对出口过滤，因此这些泄露可能无法被检测。<br>通常数据泄露会分成多个批次分配到不同IP的主机上。</p>
-</div></div>
-
-<div class="note-large red"><div class="notel-title"><p>后渗透工作</p>
-</div><div class="notel-content"><p>攻击者不单单要考虑渗透成功，还要考虑可持续性，即可以随时解除或保持攻击。同时还要考虑到在攻击过程中的任何一部都有可能被日志记录并作为溯源的依据。</p>
-</div></div>
-
-<div class="note default"><p>关于 C&amp;C (Command and Control Communication)</p>
-</div>
-<p>这是在被攻击主机与发起方进行沟通的隧道，常用的通信协议包括Http(s)、IRC、P2P以及其他自定义协议。<br>由于大多数企业视Http连接合法，并且其他流量具有明显的特征，容易被标记，因此通常采用Http协议。</p>
-<h2 id="Section-Ⅲ-Case-Study"><a href="#Section-Ⅲ-Case-Study" class="headerlink" title="Section Ⅲ : Case Study"></a>Section Ⅲ : Case Study</h2><h2 id="Section-Ⅳ-Defense-Methods"><a href="#Section-Ⅳ-Defense-Methods" class="headerlink" title="Section Ⅳ : Defense Methods"></a>Section Ⅳ : Defense Methods</h2><p>防治 APT 攻击应该以纵深防御原则，即在每一层都设有检测<br>即使攻击者攻破第一层后，还有后面一系列安全措施，不至于功亏一篑</p>
-<p>大概分类如图：</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://z1.ax1x.com/2023/10/05/pPXPaDg.md.png"
-                      alt="pPXPaDg.md.png"
-                ></p>
-<ol>
-<li><p>监控 Monitoring<br>包括 磁盘监控（文件&#x2F;CPU占用）、内存监控、流量监控（端口、时间、大小等）、代码审计、日志审计</p>
-</li>
-<li><p>检测 Detection<br>包括 异常检测、模式匹配、</p>
-</li>
-</ol>
-<h4 id="异常检测"><a href="#异常检测" class="headerlink" title="异常检测"></a>异常检测</h4><p>文章列出了目前存在的 APT 的应对策略：<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://z1.ax1x.com/2023/10/05/pPXewh4.md.png"
-                      alt="pPXewh4.md.png"
-                ></p>
-<p>这些手段往往是静态的，攻击者往往会尝试绕过这些检测</p>
-<div class="note red"><p>方法论</p>
-</div>
-<p>Hodge &amp; Austin 将异常检测分为了三类：无监督聚类、有监督分类、半监督学习<br>作者进一步将异常检测方法分为统计异常检测、基于神经网络的异常检测和基于机器学习的异常检测</p>
-<p>Chandola 等人提出了另外两种检测方法：information theoretic anomaly detection 和 spectral anomaly detection techniques<br>（信息理论异常检测技术和光谱异常检测技术）</p>
-<p>Chandola 等人又从离散序列的异常检测出发，将其检测方法分为三类：sequence-based，contiguous sub-sequence based， pattern frequency-based （序列检测、连续序列检测、频率检测）</p>
-<p>Mehmood 等人总结了通过机器学习实现的异常检测系统，包括：SVM、Fuzzy Logic、Genetic Algorithm、K-means、ANN、Association Rule 等方法</p>
-<p>作者列举了ML在异常检测中各阶段的作用以及挑战：<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://z1.ax1x.com/2023/10/05/pPXGy79.md.png"
-                      alt="pPXGy79.md.png"
-                ></p>
-<h4 id="模式匹配"><a href="#模式匹配" class="headerlink" title="模式匹配"></a>模式匹配</h4><p>这是相对较老的技术，通过观察进程和&#x2F;或应用程序的行为模式，可以检测到恶意行为</p>
-<ol start="3">
-<li>Mitigation</li>
-</ol>
-]]></content>
-      <categories>
-        <category>论文</category>
-      </categories>
   </entry>
   <entry>
     <title>差分数组</title>
@@ -1030,6 +891,139 @@
 ]]></content>
       <categories>
         <category>CTF</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>A Survey on Advanced Persistent Threats: Techniques, Solutions, Challenges, and Research Opportunities</title>
+    <url>/2023/10/03/Papers/A-survey-on-APT/</url>
+    <content><![CDATA[<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><ul>
+<li>APT攻击越来越深入</li>
+<li>很难实现全攻击面的APT检测</li>
+<li>本文介绍了各个阶段可能的攻击方法</li>
+</ul>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><ul>
+<li>APT防御应该在各个阶段</li>
+</ul>
+<h2 id="Section-Ⅱ-Definition-of-APT"><a href="#Section-Ⅱ-Definition-of-APT" class="headerlink" title="Section Ⅱ : Definition of APT"></a>Section Ⅱ : Definition of APT</h2><h3 id="Advanced-Persistent-Threat"><a href="#Advanced-Persistent-Threat" class="headerlink" title="Advanced Persistent Threat"></a>Advanced Persistent Threat</h3><ul>
+<li>Advanced : 攻击者很rich，有高级工具可以使用，保证攻击的持久性和有效性</li>
+<li>Persistent : 一旦进入系统，长时间停留，依靠各种手段绕过检测</li>
+<li>Threat : 收集敏感数据</li>
+</ul>
+<h3 id="APT-or-Targeted-Attack"><a href="#APT-or-Targeted-Attack" class="headerlink" title="APT or Targeted Attack ?"></a>APT or Targeted Attack ?</h3><p>APT攻击与传统攻击的主要区别<br><a href="https://imgse.com/i/pPOpBoq"><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://z1.ax1x.com/2023/10/03/pPOpBoq.md.png"
+                      alt="pPOpBoq.md.png"
+                ></a></p>
+<p>如下满足其一则不属于 APT attack：</p>
+<ul>
+<li>攻击有多种预防措施</li>
+<li>攻击者不需要为了防御做过多的准备</li>
+<li>攻击在其变体中没有表现出任何新特性</li>
+</ul>
+<p>NIST(National Institute of Standards and Technology)描述的APT攻击的三个目标：</p>
+<ul>
+<li>Steal Organization Data</li>
+<li>Undermine Organization’s Critical Aspects</li>
+<li>Position for Future</li>
+</ul>
+<h3 id="How-APT-attacks-are-made"><a href="#How-APT-attacks-are-made" class="headerlink" title="How APT attacks are made?"></a>How APT attacks are made?</h3><p>APT Attack Tree<br>文章作者归纳了一棵通用攻击树，大概包含APT攻击所需要实施的步骤，并分别根据NIST的三个目标做了细化<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://z1.ax1x.com/2023/10/03/pPOPFds.md.png"
+                      alt="pPOPFds.md.png"
+                ></p>
+<p>在结合了其他文章后，作者归纳了如下流程图：<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://z1.ax1x.com/2023/10/03/pPOPaOe.md.png"
+                      alt="pPOPaOe.md.png"
+                ></p>
+<div class="note-large red"><div class="notel-title"><p>侦察</p>
+</div><div class="notel-content"><p>以被动攻击为主，作为前期情报搜集工作，利用社工、渗透测试等方式，了解网络拓扑以及相关信息，为后期做准备。</p>
+</div></div>
+
+<div class="note-large red"><div class="notel-title"><p>建立落脚点</p>
+</div><div class="notel-content"><p>在前期侦察过程后，能够发现设施的脆弱性，尝试利用脆弱性干到内网里。通常包括如下手段：</p>
+<ul>
+<li>已知漏洞利用，包括已经在用户端中安装的软件存在的可利用的漏洞</li>
+<li>恶意软件，通过在用户端运行定制开发的恶意软件达到攻击效果</li>
+<li>网络钓鱼，针对特定目标发送钓鱼邮件，负载恶意软件，用户在运行或下载后使攻击者进驻网络</li>
+<li>0day漏洞，程序存在的漏洞，但并未被公开修复，且未被告知，这种利用方式不多但往往很致命</li>
+<li>网络下载</li>
+<li>水坑攻击，字面意思，在目标必经之路上设置陷阱，通常是在目标经常使用的网站中注入陷阱。目标一旦访问该网站，就会下载恶意负载，帮助攻击者进入内网</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://z1.ax1x.com/2023/10/04/pPOgcCT.md.png"
+                      alt="pPOgcCT.md.png"
+                ></p>
+<p>攻击者一旦进入到内网中，就会低调行事，尝试建立 C&amp;C (Commadn and Control) 通信通道，以部署后续攻击，在此期间，程序要防止自己被检测工具发现<br>大多数恶意程序通过 DNS 服务来进行定位，以向总部发出自己的位置。</p>
+</div></div>
+
+<div class="note-large red"><div class="notel-title"><p>横向探索&#x2F;不被发现</p>
+</div><div class="notel-content"><p>一旦进入目标系统，获得了其访问权限，则可以传播到内网的其他系统中，访问更多资源。<br>有时需要提权、密钥转储等技术以获得给更多信息。具体所选择的方法取决于具体环境。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://z1.ax1x.com/2023/10/04/pPOgJ4f.md.png"
+                      alt="pPOgJ4f.md.png"
+                ></p>
+<p>文章提到了一些密码工具有：mimikatz、Windows Credential Editor<br>(WCE)<br>其核心是在内存中解析并提取 Windows本地安全授权(LSA)</p>
+</div></div>
+
+<div class="note-large red"><div class="notel-title"><p>报告信息&#x2F;实施拦截</p>
+</div><div class="notel-content"><p>攻击者将收集到的数据输出到 C&amp;C 服务器，由于大多数 IDS 仅对入口检测，而不对出口过滤，因此这些泄露可能无法被检测。<br>通常数据泄露会分成多个批次分配到不同IP的主机上。</p>
+</div></div>
+
+<div class="note-large red"><div class="notel-title"><p>后渗透工作</p>
+</div><div class="notel-content"><p>攻击者不单单要考虑渗透成功，还要考虑可持续性，即可以随时解除或保持攻击。同时还要考虑到在攻击过程中的任何一部都有可能被日志记录并作为溯源的依据。</p>
+</div></div>
+
+<div class="note default"><p>关于 C&amp;C (Command and Control Communication)</p>
+</div>
+<p>这是在被攻击主机与发起方进行沟通的隧道，常用的通信协议包括Http(s)、IRC、P2P以及其他自定义协议。<br>由于大多数企业视Http连接合法，并且其他流量具有明显的特征，容易被标记，因此通常采用Http协议。</p>
+<h2 id="Section-Ⅲ-Case-Study"><a href="#Section-Ⅲ-Case-Study" class="headerlink" title="Section Ⅲ : Case Study"></a>Section Ⅲ : Case Study</h2><h2 id="Section-Ⅳ-Defense-Methods"><a href="#Section-Ⅳ-Defense-Methods" class="headerlink" title="Section Ⅳ : Defense Methods"></a>Section Ⅳ : Defense Methods</h2><p>防治 APT 攻击应该以纵深防御原则，即在每一层都设有检测<br>即使攻击者攻破第一层后，还有后面一系列安全措施，不至于功亏一篑</p>
+<p>大概分类如图：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://z1.ax1x.com/2023/10/05/pPXPaDg.md.png"
+                      alt="pPXPaDg.md.png"
+                ></p>
+<ol>
+<li><p>监控 Monitoring<br>包括 磁盘监控（文件&#x2F;CPU占用）、内存监控、流量监控（端口、时间、大小等）、代码审计、日志审计</p>
+</li>
+<li><p>检测 Detection<br>包括 异常检测、模式匹配、</p>
+</li>
+</ol>
+<h4 id="异常检测"><a href="#异常检测" class="headerlink" title="异常检测"></a>异常检测</h4><p>文章列出了目前存在的 APT 的应对策略：<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://z1.ax1x.com/2023/10/05/pPXewh4.md.png"
+                      alt="pPXewh4.md.png"
+                ></p>
+<p>这些手段往往是静态的，攻击者往往会尝试绕过这些检测</p>
+<div class="note red"><p>方法论</p>
+</div>
+<p>Hodge &amp; Austin 将异常检测分为了三类：无监督聚类、有监督分类、半监督学习<br>作者进一步将异常检测方法分为统计异常检测、基于神经网络的异常检测和基于机器学习的异常检测</p>
+<p>Chandola 等人提出了另外两种检测方法：information theoretic anomaly detection 和 spectral anomaly detection techniques<br>（信息理论异常检测技术和光谱异常检测技术）</p>
+<p>Chandola 等人又从离散序列的异常检测出发，将其检测方法分为三类：sequence-based，contiguous sub-sequence based， pattern frequency-based （序列检测、连续序列检测、频率检测）</p>
+<p>Mehmood 等人总结了通过机器学习实现的异常检测系统，包括：SVM、Fuzzy Logic、Genetic Algorithm、K-means、ANN、Association Rule 等方法</p>
+<p>作者列举了ML在异常检测中各阶段的作用以及挑战：<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://z1.ax1x.com/2023/10/05/pPXGy79.md.png"
+                      alt="pPXGy79.md.png"
+                ></p>
+<h4 id="模式匹配"><a href="#模式匹配" class="headerlink" title="模式匹配"></a>模式匹配</h4><p>这是相对较老的技术，通过观察进程和&#x2F;或应用程序的行为模式，可以检测到恶意行为</p>
+<ol start="3">
+<li>Mitigation</li>
+</ol>
+]]></content>
+      <categories>
+        <category>论文</category>
       </categories>
   </entry>
 </search>
