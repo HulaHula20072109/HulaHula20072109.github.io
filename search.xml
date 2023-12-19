@@ -1,102 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>LC-362</title>
-    <url>/2023/09/10/LeetCode/LC-362/</url>
-    <content><![CDATA[<h2 id="成绩"><a href="#成绩" class="headerlink" title="成绩"></a>成绩</h2><p><img lazyload="" src="/images/loading.svg" data-src="https://s1.ax1x.com/2023/09/10/pPcoBMF.png" alt="成绩"></p>
-<p>本周周赛依然仅通过 3 题，我好没本领<br>好好复盘一下</p>
-<h2 id="复盘"><a href="#复盘" class="headerlink" title="复盘"></a>复盘</h2><h3 id="8029-与车相交的点"><a href="#8029-与车相交的点" class="headerlink" title="8029. 与车相交的点"></a><a class="link" href="https://leetcode.cn/problems/points-that-intersect-with-cars/">8029. 与车相交的点 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></h3><p>比赛时写的 shitcode 如下：</p>
-<p><strong>ShitCode</strong></p>
-<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="5.832ex" height="2.452ex" role="img" focusable="false" viewBox="0 -833.9 2577.6 1083.9"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D442" d="M740 435Q740 320 676 213T511 42T304 -22Q207 -22 138 35T51 201Q50 209 50 244Q50 346 98 438T227 601Q351 704 476 704Q514 704 524 703Q621 689 680 617T740 435ZM637 476Q637 565 591 615T476 665Q396 665 322 605Q242 542 200 428T157 216Q157 126 200 73T314 19Q404 19 485 98T608 313Q637 408 637 476Z"></path></g><g data-mml-node="mo" transform="translate(763,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="msup" transform="translate(1152,0)"><g data-mml-node="mi"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mn" transform="translate(633,363) scale(0.707)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g></g><g data-mml-node="mo" transform="translate(2188.6,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container></p>
-<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> {</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">numberOfPoints</span><span class="params">(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; nums)</span> </span>{</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">n</span><span class="params">(<span class="number">101</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> car:nums){</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> i=car[<span class="number">0</span>];i&lt;=car[<span class="number">1</span>];i++)</span><br><span class="line">                n[i] = <span class="number">1</span>;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">accumulate</span>(n.<span class="built_in">begin</span>() , n.<span class="built_in">end</span>() , <span class="number">0</span>);</span><br><span class="line">    }</span><br><span class="line">};</span><br></pre></td></tr></table></figure></div>
-
-<p>本题考点为 <strong>差分数组</strong> ，属于基础算法<br>详见 <a href="/post/LeetCode/LeetCode-diff-array">差分数组</a></p>
-<p><strong>GoodCode</strong></p>
-<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="4.844ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 2141 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D442" d="M740 435Q740 320 676 213T511 42T304 -22Q207 -22 138 35T51 201Q50 209 50 244Q50 346 98 438T227 601Q351 704 476 704Q514 704 524 703Q621 689 680 617T740 435ZM637 476Q637 565 591 615T476 665Q396 665 322 605Q242 542 200 428T157 216Q157 126 200 73T314 19Q404 19 485 98T608 313Q637 408 637 476Z"></path></g><g data-mml-node="mo" transform="translate(763,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mi" transform="translate(1152,0)"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(1752,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container></p>
-<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> {</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">numberOfPoints</span><span class="params">(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; nums)</span> </span>{</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">diff</span><span class="params">(<span class="number">102</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> num : nums){</span><br><span class="line">            diff[num[<span class="number">0</span>]] += <span class="number">1</span>;</span><br><span class="line">            diff[num[<span class="number">1</span>] + <span class="number">1</span>] -= <span class="number">1</span>;</span><br><span class="line">        }</span><br><span class="line">        <span class="type">int</span> sum = <span class="number">0</span>, ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>; i&lt;=<span class="number">100</span>; i++){</span><br><span class="line">            sum += diff[i];</span><br><span class="line">            <span class="keyword">if</span>(sum &gt; <span class="number">0</span>)</span><br><span class="line">                ans++;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    }</span><br><span class="line">};</span><br></pre></td></tr></table></figure></div>
-
-<h3 id="2849-判断能否在给定时间到达单元格"><a href="#2849-判断能否在给定时间到达单元格" class="headerlink" title="2849. 判断能否在给定时间到达单元格"></a><a class="link" href="https://leetcode.cn/problems/determine-if-a-cell-is-reachable-at-a-given-time/">2849. 判断能否在给定时间到达单元格 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></h3><p>这题只要发现数学规律即可<br>首先发现最优走法是先走斜线再走直线 长度即为 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="11.999ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 5303.7 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D45A" d="M21 287Q22 293 24 303T36 341T56 388T88 425T132 442T175 435T205 417T221 395T229 376L231 369Q231 367 232 367L243 378Q303 442 384 442Q401 442 415 440T441 433T460 423T475 411T485 398T493 385T497 373T500 364T502 357L510 367Q573 442 659 442Q713 442 746 415T780 336Q780 285 742 178T704 50Q705 36 709 31T724 26Q752 26 776 56T815 138Q818 149 821 151T837 153Q857 153 857 145Q857 144 853 130Q845 101 831 73T785 17T716 -10Q669 -10 648 17T627 73Q627 92 663 193T700 345Q700 404 656 404H651Q565 404 506 303L499 291L466 157Q433 26 428 16Q415 -11 385 -11Q372 -11 364 -4T353 8T350 18Q350 29 384 161L420 307Q423 322 423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 181Q151 335 151 342Q154 357 154 369Q154 405 129 405Q107 405 92 377T69 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mi" transform="translate(878,0)"><path data-c="1D44E" d="M33 157Q33 258 109 349T280 441Q331 441 370 392Q386 422 416 422Q429 422 439 414T449 394Q449 381 412 234T374 68Q374 43 381 35T402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487Q506 153 506 144Q506 138 501 117T481 63T449 13Q436 0 417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157ZM351 328Q351 334 346 350T323 385T277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q217 26 254 59T298 110Q300 114 325 217T351 328Z"></path></g><g data-mml-node="mi" transform="translate(1407,0)"><path data-c="1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"></path></g><g data-mml-node="mo" transform="translate(1979,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mi" transform="translate(2368,0)"><path data-c="1D451" d="M366 683Q367 683 438 688T511 694Q523 694 523 686Q523 679 450 384T375 83T374 68Q374 26 402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487H491Q506 153 506 145Q506 140 503 129Q490 79 473 48T445 8T417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157Q33 205 53 255T101 341Q148 398 195 420T280 442Q336 442 364 400Q369 394 369 396Q370 400 396 505T424 616Q424 629 417 632T378 637H357Q351 643 351 645T353 664Q358 683 366 683ZM352 326Q329 405 277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q233 26 290 98L298 109L352 326Z"></path></g><g data-mml-node="mi" transform="translate(2888,0)"><path data-c="1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"></path></g><g data-mml-node="mo" transform="translate(3460,0)"><path data-c="2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path></g><g data-mml-node="mi" transform="translate(3904.7,0)"><path data-c="1D451" d="M366 683Q367 683 438 688T511 694Q523 694 523 686Q523 679 450 384T375 83T374 68Q374 26 402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487H491Q506 153 506 145Q506 140 503 129Q490 79 473 48T445 8T417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157Q33 205 53 255T101 341Q148 398 195 420T280 442Q336 442 364 400Q369 394 369 396Q370 400 396 505T424 616Q424 629 417 632T378 637H357Q351 643 351 645T353 664Q358 683 366 683ZM352 326Q329 405 277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q233 26 290 98L298 109L352 326Z"></path></g><g data-mml-node="mi" transform="translate(4424.7,0)"><path data-c="1D466" d="M21 287Q21 301 36 335T84 406T158 442Q199 442 224 419T250 355Q248 336 247 334Q247 331 231 288T198 191T182 105Q182 62 196 45T238 27Q261 27 281 38T312 61T339 94Q339 95 344 114T358 173T377 247Q415 397 419 404Q432 431 462 431Q475 431 483 424T494 412T496 403Q496 390 447 193T391 -23Q363 -106 294 -155T156 -205Q111 -205 77 -183T43 -117Q43 -95 50 -80T69 -58T89 -48T106 -45Q150 -45 150 -87Q150 -107 138 -122T115 -142T102 -147L99 -148Q101 -153 118 -160T152 -167H160Q177 -167 186 -165Q219 -156 247 -127T290 -65T313 -9T321 21L315 17Q309 13 296 6T270 -6Q250 -11 231 -11Q185 -11 150 11T104 82Q103 89 103 113Q103 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(4914.7,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container><br>但题目要求的是恰好走 t 步可以到达，那就在周围转圈呗，所以直观感受只要是 t &gt; 最优路线 均满足<br>但要考虑 <strong>特殊用例</strong>：<br><em>起点终点重合并且t=1</em>，这时候就不满足了</p>
-<p><strong>GoodCode</strong></p>
-<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> {</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isReachableAtTime</span><span class="params">(<span class="type">int</span> sx, <span class="type">int</span> sy, <span class="type">int</span> fx, <span class="type">int</span> fy, <span class="type">int</span> t)</span> </span>{</span><br><span class="line">        <span class="type">int</span> del = <span class="built_in">max</span>(<span class="built_in">abs</span>(fx - sx), <span class="built_in">abs</span>(fy- sy));</span><br><span class="line">        <span class="keyword">if</span>(del == <span class="number">0</span> &amp;&amp; t == <span class="number">1</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">return</span> t &gt;= del;</span><br><span class="line">    }</span><br><span class="line">};</span><br></pre></td></tr></table></figure></div>
-
-<h3 id="2850-将石头分散到网格图的最少移动次数"><a href="#2850-将石头分散到网格图的最少移动次数" class="headerlink" title="2850. 将石头分散到网格图的最少移动次数"></a><a class="link" href="https://leetcode.cn/problems/minimum-moves-to-spread-stones-over-grid/">2850. 将石头分散到网格图的最少移动次数 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></h3><p>事实上就是把 所有空位 和 石头大于 1 的位置 两两匹配，然后求得总的最小距离即可。这是一个全排列问题。</p>
-<p>想法没错，但就是不会手搓全排列，比赛的时候耍了个赖皮，用的 STL 里的 <code>next_permutation(vector.begin(), vector.end())</code>，侥幸过了</p>
-<p>用这道题复习一下 <a class="link" href="https://leetcode.cn/problems/permutations/description/">全排列 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<p>这里使用回溯法</p>
-<ul>
-<li>当前操作：选择一项加入排列，若全部选完则返回</li>
-<li>子问题：构造排列 i ~ n 的部分</li>
-<li>下一个子问题：构造 i + 1 ~ n 的部分</li>
-</ul>
-<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> {</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; ans;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; path;</span><br><span class="line">    vector&lt;<span class="type">bool</span>&gt; status;</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">permute</span>(vector&lt;<span class="type">int</span>&gt;&amp; nums) {</span><br><span class="line">        status.<span class="built_in">resize</span>(nums.<span class="built_in">size</span>(), <span class="literal">false</span>);</span><br><span class="line">        <span class="built_in">dfs</span>(nums);</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    }</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span></span>{</span><br><span class="line">        <span class="keyword">if</span>(path.<span class="built_in">size</span>() == nums.<span class="built_in">size</span>()){</span><br><span class="line">            ans.<span class="built_in">emplace_back</span>(path);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;nums.<span class="built_in">size</span>(); i++){</span><br><span class="line">            <span class="keyword">if</span>(status[i])</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            status[i] = <span class="literal">true</span>;</span><br><span class="line">            path.<span class="built_in">emplace_back</span>(nums[i]);</span><br><span class="line">            <span class="built_in">dfs</span>(nums);</span><br><span class="line">            path.<span class="built_in">pop_back</span>();</span><br><span class="line">            status[i] = <span class="literal">false</span>;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">};</span><br></pre></td></tr></table></figure></div>
-
-<p>回顾之后我们再来看此题，思路为：</p>
-<ul>
-<li>构造全排列</li>
-<li>对每一排列计算答案</li>
-<li>返回最小值</li>
-</ul>
-<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> {</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; path;</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; from;</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; to;</span><br><span class="line">    <span class="type">int</span> ans = INT_MAX;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">minimumMoves</span><span class="params">(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; grid)</span> </span>{</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;grid.<span class="built_in">size</span>(); i++){</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>; j&lt;grid.<span class="built_in">size</span>(); j++){</span><br><span class="line">                <span class="keyword">for</span>(<span class="type">int</span> t=<span class="number">1</span>; t&lt;grid[i][j]; t++){</span><br><span class="line">                    from.<span class="built_in">push_back</span>({i,j});</span><br><span class="line">                }</span><br><span class="line">                <span class="keyword">if</span>(grid[i][j] == <span class="number">0</span>)</span><br><span class="line">                    to.<span class="built_in">push_back</span>({i,j});</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        <span class="function">vector&lt;<span class="type">bool</span>&gt; <span class="title">status</span><span class="params">(from.size(), <span class="literal">false</span>)</span></span>;</span><br><span class="line">        <span class="built_in">dfs</span>(status);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(vector&lt;<span class="type">bool</span>&gt;&amp; status)</span></span>{</span><br><span class="line">        <span class="keyword">if</span>(path.<span class="built_in">size</span>() == from.<span class="built_in">size</span>()){</span><br><span class="line">            <span class="type">int</span> t = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;path.<span class="built_in">size</span>(); i++){</span><br><span class="line">                t += <span class="built_in">abs</span>(path[i][<span class="number">0</span>] - to[i][<span class="number">0</span>]) + <span class="built_in">abs</span>(path[i][<span class="number">1</span>] - to[i][<span class="number">1</span>]);</span><br><span class="line">            }</span><br><span class="line">            ans = <span class="built_in">min</span>(ans, t);</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;from.<span class="built_in">size</span>(); i++){</span><br><span class="line">            <span class="keyword">if</span>(status[i])</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            status[i] = <span class="literal">true</span>;</span><br><span class="line">            path.<span class="built_in">emplace_back</span>(from[i]);</span><br><span class="line">            <span class="built_in">dfs</span>(status);</span><br><span class="line">            status[i] = <span class="literal">false</span>;</span><br><span class="line">            path.<span class="built_in">pop_back</span>();</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">};</span><br></pre></td></tr></table></figure></div>
-
-<p>写完以后发现还是没有 STL 好用</p>
-<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> {</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">minimumMoves</span><span class="params">(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; grid)</span> </span>{</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; from;</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; to;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;grid.<span class="built_in">size</span>(); i++){</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>; j&lt;grid.<span class="built_in">size</span>(); j++){</span><br><span class="line">                <span class="keyword">for</span>(<span class="type">int</span> t=<span class="number">1</span>; t&lt;grid[i][j]; t++){</span><br><span class="line">                    from.<span class="built_in">push_back</span>({i,j});</span><br><span class="line">                }</span><br><span class="line">                <span class="keyword">if</span>(grid[i][j] == <span class="number">0</span>)</span><br><span class="line">                    to.<span class="built_in">push_back</span>({i,j});</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        <span class="type">int</span> ans = INT_MAX;</span><br><span class="line">        <span class="keyword">do</span>{</span><br><span class="line">            <span class="type">int</span> t = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;from.<span class="built_in">size</span>(); i++){</span><br><span class="line">                t += <span class="built_in">abs</span>(from[i][<span class="number">0</span>] - to[i][<span class="number">0</span>]) + <span class="built_in">abs</span>(from[i][<span class="number">1</span>] - to[i][<span class="number">1</span>]);</span><br><span class="line">            }</span><br><span class="line">            ans = <span class="built_in">min</span>(ans, t);</span><br><span class="line">        } <span class="keyword">while</span>(<span class="built_in">next_permutation</span>(from.<span class="built_in">begin</span>(), from.<span class="built_in">end</span>()));</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    }</span><br><span class="line">};</span><br></pre></td></tr></table></figure></div>
-
-<h3 id="2851-字符串转换"><a href="#2851-字符串转换" class="headerlink" title="2851. 字符串转换"></a><a class="link" href="https://www.bilibili.com/video/BV1U34y1N7Pe/?vd_source=c73bd6935474d65679017c10379807a3">2851. 字符串转换 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></h3>]]></content>
-      <categories>
-        <category>周赛</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>LC-367</title>
-    <url>/2023/10/15/LeetCode/LC-367/</url>
-    <content><![CDATA[<p>好久没打退步了，连着两场 3 分<br>做题时感觉思路没那么清晰了</p>
-<h2 id="LC-367"><a href="#LC-367" class="headerlink" title="LC-367"></a>LC-367</h2><h4 id="最短且字典序最小的美丽子字符串"><a href="#最短且字典序最小的美丽子字符串" class="headerlink" title="最短且字典序最小的美丽子字符串"></a><a class="link"   href="https://leetcode.cn/problems/shortest-and-lexicographically-smallest-beautiful-string/" >最短且字典序最小的美丽子字符串 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></h4><p>这题纯枚举，此外知道 string 可以直接比较</p>
-<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">shortestBeautifulSubstring</span><span class="params">(string s, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">count</span>(s.<span class="built_in">begin</span>(), s.<span class="built_in">end</span>(), <span class="string">&#x27;1&#x27;</span>) &lt; k)</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> size=k;;size++)&#123;</span><br><span class="line">            string ans = <span class="string">&quot;&quot;</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> i=size; i&lt;=s.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">                string t = s.<span class="built_in">substr</span>(i-size, size);</span><br><span class="line">                <span class="keyword">if</span>((ans == <span class="string">&quot;&quot;</span> || t &lt; ans) &amp;&amp; <span class="built_in">count</span>(t.<span class="built_in">begin</span>(), t.<span class="built_in">end</span>(), <span class="string">&#x27;1&#x27;</span>) == k)</span><br><span class="line">                ans = t;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(!ans.<span class="built_in">empty</span>())</span><br><span class="line">                <span class="keyword">return</span> ans;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></div>
-
-<h4 id="找出满足差值条件的下标-II"><a href="#找出满足差值条件的下标-II" class="headerlink" title="找出满足差值条件的下标 II"></a><a class="link"   href="https://leetcode.cn/problems/find-indices-with-index-and-value-difference-ii/" >找出满足差值条件的下标 II <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></h4><p>这和 <a class="link"   href="https://leetcode.cn/problems/find-indices-with-index-and-value-difference-i/" >找出满足差值条件的下标 I <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> 不太一样，用例规模较大，不能暴力</p>
-<p>思路是记录遍历过的 数据区间，维护区间索引 <code>min_idx</code>, <code>max_idx</code><br>对于间隔 <code>indexDifference</code> 位置的数据 <code>num[j] </code>，只要满足其一即为答案：</p>
-<ul>
-<li>nums[max_idx] - nums[j] &gt;&#x3D; valueDifference</li>
-<li>nums[j] - nums[min_idx] &gt;&#x3D; valueDifference</li>
-</ul>
-<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">findIndices</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> indexDifference, <span class="type">int</span> valueDifference)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> max_idx = <span class="number">0</span>, min_idx = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i + indexDifference &lt; nums.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            <span class="type">int</span> j = i + indexDifference;</span><br><span class="line">            <span class="keyword">if</span>(nums[i] &gt; nums[max_idx])</span><br><span class="line">                max_idx = i;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(nums[i] &lt; nums[min_idx])</span><br><span class="line">                min_idx = i;</span><br><span class="line">            <span class="keyword">if</span>(nums[max_idx] - nums[j] &gt;= valueDifference)</span><br><span class="line">                <span class="keyword">return</span> &#123;max_idx, j&#125;;</span><br><span class="line">            <span class="keyword">if</span>(nums[j] - nums[min_idx] &gt;= valueDifference)</span><br><span class="line">                <span class="keyword">return</span> &#123;min_idx, j&#125;;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> &#123;<span class="number">-1</span>, <span class="number">-1</span>&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></div>
-
-
-<h2 id="LC-115-S"><a href="#LC-115-S" class="headerlink" title="LC-115-S"></a>LC-115-S</h2><h4 id="上一个遍历的整数"><a href="#上一个遍历的整数" class="headerlink" title="上一个遍历的整数"></a><a class="link"   href="https://leetcode.cn/problems/last-visited-integers/description/" >上一个遍历的整数 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></h4><p>唯一做出来的一题</p>
-<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">lastVisitedIntegers</span><span class="params">(vector&lt;string&gt;&amp; words)</span> </span>&#123;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; ans;</span><br><span class="line">        deque&lt;<span class="type">int</span>&gt; arr;</span><br><span class="line">        <span class="type">int</span> k = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; s:words)&#123;</span><br><span class="line">            <span class="keyword">if</span>(s != <span class="string">&quot;prev&quot;</span>)&#123;</span><br><span class="line">                arr.<span class="built_in">push_front</span>(<span class="built_in">stoi</span>(s));</span><br><span class="line">                k = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                ans.<span class="built_in">push_back</span>(++k &gt; arr.<span class="built_in">size</span>() ? <span class="number">-1</span> : arr[k<span class="number">-1</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></div>
-
-<h4 id="最长相邻不相等子序列-I"><a href="#最长相邻不相等子序列-I" class="headerlink" title="最长相邻不相等子序列 I"></a><a class="link"   href="https://leetcode.cn/problems/longest-unequal-adjacent-groups-subsequence-i/description/" >最长相邻不相等子序列 I <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></h4><p>这题有点脑筋急转弯了，好久没做脑子转不动了</p>
-<p>题目意思即让在形如 00111001··· 的数组中找到 最长的 01 交替序列<br>理解这层意思后其实就很简单了，实际上就是对于每一个 连续 0 或 连续 1 的序列，仅保留一个 0 或 1<br>记录下其下标，映射到 words 里即得到答案</p>
-<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;string&gt; <span class="title">getWordsInLongestSubsequence</span><span class="params">(<span class="type">int</span> n, vector&lt;string&gt;&amp; words, vector&lt;<span class="type">int</span>&gt;&amp; groups)</span> </span>&#123;</span><br><span class="line">        vector&lt;string&gt; ans;</span><br><span class="line">        <span class="type">int</span> pre = groups[<span class="number">0</span>];</span><br><span class="line">        ans.<span class="built_in">emplace_back</span>(words[<span class="number">0</span>]);</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>; i &lt; words.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(groups[i] == pre) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                ans.<span class="built_in">emplace_back</span>(words[i]);</span><br><span class="line">                pre = groups[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></div>
-
-<p>这题不应该做不出来</p>
-<h4 id="最长相邻不相等子序列-II"><a href="#最长相邻不相等子序列-II" class="headerlink" title="最长相邻不相等子序列 II"></a><a class="link"   href="https://leetcode.cn/problems/longest-unequal-adjacent-groups-subsequence-ii/" >最长相邻不相等子序列 II <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></h4><p>常规 序列 dp<br><code>f[i]</code> 表示以 <code>words[i]</code> 为结尾的最长子序列长度<br>状态转移方程为 <code>f[i] = max(f[j] + 1)</code><br>其中 <code>j &lt; i</code> 且 <code>group[i] == group[j]</code> 且 <code>len(words[i]) == len(words[j])</code> 且 <code>diff = 1</code></p>
-<p>为了记录方案，需要引入一个数组记录 上一步 状态，这里记作 from</p>
-<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;string&gt; <span class="title">getWordsInLongestSubsequence</span><span class="params">(<span class="type">int</span> n, vector&lt;string&gt;&amp; words, vector&lt;<span class="type">int</span>&gt;&amp; groups)</span> </span>&#123;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">f</span><span class="params">(words.size())</span></span>;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">from</span><span class="params">(words.size())</span></span>;</span><br><span class="line">        <span class="type">int</span> a = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> tail = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;n; i++)&#123;</span><br><span class="line">            f[i] = <span class="number">1</span>;</span><br><span class="line">            from[i] = <span class="number">-1</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>; j&lt;i; j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(groups[i] != groups[j] &amp;&amp; words[i].<span class="built_in">size</span>() == words[j].<span class="built_in">size</span>() &amp;&amp; <span class="built_in">diff</span>(words[i], words[j]) &amp;&amp; f[j] + <span class="number">1</span> &gt; f[i])&#123;</span><br><span class="line">                    f[i] = f[j] + <span class="number">1</span>;</span><br><span class="line">                    from[i] = j;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(f[i] &gt; a)&#123;</span><br><span class="line">                a = f[i];</span><br><span class="line">                tail = i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        vector&lt;string&gt; ans;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = tail; i &gt;= <span class="number">0</span>; i = from[i])</span><br><span class="line">            ans.<span class="built_in">emplace_back</span>(words[i]);</span><br><span class="line">        <span class="built_in">reverse</span>(ans.<span class="built_in">begin</span>(), ans.<span class="built_in">end</span>());</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">diff</span><span class="params">(string&amp; a, string&amp; b)</span></span>&#123;</span><br><span class="line">        <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i &lt; a.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(a[i] != b[i]) res++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res == <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></div>
-
-<h4 id="和带限制的子多重集合的数目"><a href="#和带限制的子多重集合的数目" class="headerlink" title="和带限制的子多重集合的数目"></a><a class="link"   href="https://leetcode.cn/problems/count-of-sub-multisets-with-bounded-sum/" >和带限制的子多重集合的数目 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></h4>]]></content>
-      <categories>
-        <category>周赛</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>LC-368</title>
-    <url>/2023/10/22/LeetCode/LC-368/</url>
-    <content><![CDATA[<p>比上场多一道…</p>
-<h2 id="元素和最小的山形三元组"><a href="#元素和最小的山形三元组" class="headerlink" title="元素和最小的山形三元组"></a><a class="link"   href="https://leetcode.cn/problems/minimum-sum-of-mountain-triplets-ii/" >元素和最小的山形三元组 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></h2><p>第一问直接暴力，但第二问不行</p>
-<p>思路：<br>假设三元组 (x, y, z)，这三个数的相对顺序不变<br>那么对于固定的 y 来说，三元组最优解为 y 左边最小 + y 右边最小<br>我们只需要根据每一个 y 求出最优情况，然后得到全局最优</p>
-<p>对于每个 y 左边的最小值 和 y 右边的最小值，是可以预处理的<br>前后缀分解</p>
-<p>临场代码</p>
-<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">minimumSum</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">min_r</span><span class="params">(nums.size())</span></span>;</span><br><span class="line">        min_r[nums.<span class="built_in">size</span>()<span class="number">-1</span>] = nums[nums.<span class="built_in">size</span>()<span class="number">-1</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=nums.<span class="built_in">size</span>()<span class="number">-2</span>; i&gt;=<span class="number">0</span>; i--)&#123;</span><br><span class="line">            min_r[i] = <span class="built_in">min</span>(min_r[i+<span class="number">1</span>], nums[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> ans = INT_MAX;</span><br><span class="line">        <span class="type">int</span> pre = nums[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>; i&lt;nums.<span class="built_in">size</span>()<span class="number">-1</span>; i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(pre &lt; nums[i] &amp;&amp; nums[i] &gt; min_r[i+<span class="number">1</span>])&#123;</span><br><span class="line">                ans = <span class="built_in">min</span>(ans, pre + nums[i] + min_r[i+<span class="number">1</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">            pre = <span class="built_in">min</span>(pre, nums[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans == INT_MAX ? <span class="number">-1</span> : ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></div>
-
-<p>这题难得和灵神思路一样</p>
-<p><a class="link"   href="https://leetcode.cn/problems/minimum-sum-of-mountain-triplets-ii/solutions/2493548/mei-ju-numsj-qian-hou-zhui-fen-jie-pytho-tskf/" >同类题型 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<h2 id="合法分组的最少组数"><a href="#合法分组的最少组数" class="headerlink" title="合法分组的最少组数"></a><a class="link"   href="https://leetcode.cn/problems/minimum-number-of-groups-to-create-a-valid-assignment/" >合法分组的最少组数 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></h2>]]></content>
-      <categories>
-        <category>周赛</category>
-      </categories>
-  </entry>
-  <entry>
     <title>二分查找</title>
     <url>/2023/09/04/Algorithm/binary-search/</url>
     <content><![CDATA[<p>好久没上力扣了，二分查找还有变种都快忘了<br>另外正在复习 DS<br>找来灵神的视频温故知新一下</p>
@@ -221,6 +125,56 @@
       </tags>
   </entry>
   <entry>
+    <title>LC-367</title>
+    <url>/2023/10/15/LeetCode/LC-367/</url>
+    <content><![CDATA[<p>好久没打退步了，连着两场 3 分<br>做题时感觉思路没那么清晰了</p>
+<h2 id="LC-367"><a href="#LC-367" class="headerlink" title="LC-367"></a>LC-367</h2><h4 id="最短且字典序最小的美丽子字符串"><a href="#最短且字典序最小的美丽子字符串" class="headerlink" title="最短且字典序最小的美丽子字符串"></a><a class="link"   href="https://leetcode.cn/problems/shortest-and-lexicographically-smallest-beautiful-string/" >最短且字典序最小的美丽子字符串 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></h4><p>这题纯枚举，此外知道 string 可以直接比较</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">shortestBeautifulSubstring</span><span class="params">(string s, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">count</span>(s.<span class="built_in">begin</span>(), s.<span class="built_in">end</span>(), <span class="string">&#x27;1&#x27;</span>) &lt; k)</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> size=k;;size++)&#123;</span><br><span class="line">            string ans = <span class="string">&quot;&quot;</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> i=size; i&lt;=s.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">                string t = s.<span class="built_in">substr</span>(i-size, size);</span><br><span class="line">                <span class="keyword">if</span>((ans == <span class="string">&quot;&quot;</span> || t &lt; ans) &amp;&amp; <span class="built_in">count</span>(t.<span class="built_in">begin</span>(), t.<span class="built_in">end</span>(), <span class="string">&#x27;1&#x27;</span>) == k)</span><br><span class="line">                ans = t;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(!ans.<span class="built_in">empty</span>())</span><br><span class="line">                <span class="keyword">return</span> ans;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="找出满足差值条件的下标-II"><a href="#找出满足差值条件的下标-II" class="headerlink" title="找出满足差值条件的下标 II"></a><a class="link"   href="https://leetcode.cn/problems/find-indices-with-index-and-value-difference-ii/" >找出满足差值条件的下标 II <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></h4><p>这和 <a class="link"   href="https://leetcode.cn/problems/find-indices-with-index-and-value-difference-i/" >找出满足差值条件的下标 I <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> 不太一样，用例规模较大，不能暴力</p>
+<p>思路是记录遍历过的 数据区间，维护区间索引 <code>min_idx</code>, <code>max_idx</code><br>对于间隔 <code>indexDifference</code> 位置的数据 <code>num[j] </code>，只要满足其一即为答案：</p>
+<ul>
+<li>nums[max_idx] - nums[j] &gt;&#x3D; valueDifference</li>
+<li>nums[j] - nums[min_idx] &gt;&#x3D; valueDifference</li>
+</ul>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">findIndices</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> indexDifference, <span class="type">int</span> valueDifference)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> max_idx = <span class="number">0</span>, min_idx = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i + indexDifference &lt; nums.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            <span class="type">int</span> j = i + indexDifference;</span><br><span class="line">            <span class="keyword">if</span>(nums[i] &gt; nums[max_idx])</span><br><span class="line">                max_idx = i;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(nums[i] &lt; nums[min_idx])</span><br><span class="line">                min_idx = i;</span><br><span class="line">            <span class="keyword">if</span>(nums[max_idx] - nums[j] &gt;= valueDifference)</span><br><span class="line">                <span class="keyword">return</span> &#123;max_idx, j&#125;;</span><br><span class="line">            <span class="keyword">if</span>(nums[j] - nums[min_idx] &gt;= valueDifference)</span><br><span class="line">                <span class="keyword">return</span> &#123;min_idx, j&#125;;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> &#123;<span class="number">-1</span>, <span class="number">-1</span>&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></div>
+
+
+<h2 id="LC-115-S"><a href="#LC-115-S" class="headerlink" title="LC-115-S"></a>LC-115-S</h2><h4 id="上一个遍历的整数"><a href="#上一个遍历的整数" class="headerlink" title="上一个遍历的整数"></a><a class="link"   href="https://leetcode.cn/problems/last-visited-integers/description/" >上一个遍历的整数 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></h4><p>唯一做出来的一题</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">lastVisitedIntegers</span><span class="params">(vector&lt;string&gt;&amp; words)</span> </span>&#123;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; ans;</span><br><span class="line">        deque&lt;<span class="type">int</span>&gt; arr;</span><br><span class="line">        <span class="type">int</span> k = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; s:words)&#123;</span><br><span class="line">            <span class="keyword">if</span>(s != <span class="string">&quot;prev&quot;</span>)&#123;</span><br><span class="line">                arr.<span class="built_in">push_front</span>(<span class="built_in">stoi</span>(s));</span><br><span class="line">                k = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                ans.<span class="built_in">push_back</span>(++k &gt; arr.<span class="built_in">size</span>() ? <span class="number">-1</span> : arr[k<span class="number">-1</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="最长相邻不相等子序列-I"><a href="#最长相邻不相等子序列-I" class="headerlink" title="最长相邻不相等子序列 I"></a><a class="link"   href="https://leetcode.cn/problems/longest-unequal-adjacent-groups-subsequence-i/description/" >最长相邻不相等子序列 I <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></h4><p>这题有点脑筋急转弯了，好久没做脑子转不动了</p>
+<p>题目意思即让在形如 00111001··· 的数组中找到 最长的 01 交替序列<br>理解这层意思后其实就很简单了，实际上就是对于每一个 连续 0 或 连续 1 的序列，仅保留一个 0 或 1<br>记录下其下标，映射到 words 里即得到答案</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;string&gt; <span class="title">getWordsInLongestSubsequence</span><span class="params">(<span class="type">int</span> n, vector&lt;string&gt;&amp; words, vector&lt;<span class="type">int</span>&gt;&amp; groups)</span> </span>&#123;</span><br><span class="line">        vector&lt;string&gt; ans;</span><br><span class="line">        <span class="type">int</span> pre = groups[<span class="number">0</span>];</span><br><span class="line">        ans.<span class="built_in">emplace_back</span>(words[<span class="number">0</span>]);</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>; i &lt; words.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(groups[i] == pre) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                ans.<span class="built_in">emplace_back</span>(words[i]);</span><br><span class="line">                pre = groups[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></div>
+
+<p>这题不应该做不出来</p>
+<h4 id="最长相邻不相等子序列-II"><a href="#最长相邻不相等子序列-II" class="headerlink" title="最长相邻不相等子序列 II"></a><a class="link"   href="https://leetcode.cn/problems/longest-unequal-adjacent-groups-subsequence-ii/" >最长相邻不相等子序列 II <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></h4><p>常规 序列 dp<br><code>f[i]</code> 表示以 <code>words[i]</code> 为结尾的最长子序列长度<br>状态转移方程为 <code>f[i] = max(f[j] + 1)</code><br>其中 <code>j &lt; i</code> 且 <code>group[i] == group[j]</code> 且 <code>len(words[i]) == len(words[j])</code> 且 <code>diff = 1</code></p>
+<p>为了记录方案，需要引入一个数组记录 上一步 状态，这里记作 from</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;string&gt; <span class="title">getWordsInLongestSubsequence</span><span class="params">(<span class="type">int</span> n, vector&lt;string&gt;&amp; words, vector&lt;<span class="type">int</span>&gt;&amp; groups)</span> </span>&#123;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">f</span><span class="params">(words.size())</span></span>;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">from</span><span class="params">(words.size())</span></span>;</span><br><span class="line">        <span class="type">int</span> a = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> tail = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;n; i++)&#123;</span><br><span class="line">            f[i] = <span class="number">1</span>;</span><br><span class="line">            from[i] = <span class="number">-1</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>; j&lt;i; j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(groups[i] != groups[j] &amp;&amp; words[i].<span class="built_in">size</span>() == words[j].<span class="built_in">size</span>() &amp;&amp; <span class="built_in">diff</span>(words[i], words[j]) &amp;&amp; f[j] + <span class="number">1</span> &gt; f[i])&#123;</span><br><span class="line">                    f[i] = f[j] + <span class="number">1</span>;</span><br><span class="line">                    from[i] = j;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(f[i] &gt; a)&#123;</span><br><span class="line">                a = f[i];</span><br><span class="line">                tail = i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        vector&lt;string&gt; ans;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = tail; i &gt;= <span class="number">0</span>; i = from[i])</span><br><span class="line">            ans.<span class="built_in">emplace_back</span>(words[i]);</span><br><span class="line">        <span class="built_in">reverse</span>(ans.<span class="built_in">begin</span>(), ans.<span class="built_in">end</span>());</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">diff</span><span class="params">(string&amp; a, string&amp; b)</span></span>&#123;</span><br><span class="line">        <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i &lt; a.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(a[i] != b[i]) res++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res == <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="和带限制的子多重集合的数目"><a href="#和带限制的子多重集合的数目" class="headerlink" title="和带限制的子多重集合的数目"></a><a class="link"   href="https://leetcode.cn/problems/count-of-sub-multisets-with-bounded-sum/" >和带限制的子多重集合的数目 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></h4>]]></content>
+      <categories>
+        <category>周赛</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>LC-368</title>
+    <url>/2023/10/22/LeetCode/LC-368/</url>
+    <content><![CDATA[<p>比上场多一道…</p>
+<h2 id="元素和最小的山形三元组"><a href="#元素和最小的山形三元组" class="headerlink" title="元素和最小的山形三元组"></a><a class="link"   href="https://leetcode.cn/problems/minimum-sum-of-mountain-triplets-ii/" >元素和最小的山形三元组 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></h2><p>第一问直接暴力，但第二问不行</p>
+<p>思路：<br>假设三元组 (x, y, z)，这三个数的相对顺序不变<br>那么对于固定的 y 来说，三元组最优解为 y 左边最小 + y 右边最小<br>我们只需要根据每一个 y 求出最优情况，然后得到全局最优</p>
+<p>对于每个 y 左边的最小值 和 y 右边的最小值，是可以预处理的<br>前后缀分解</p>
+<p>临场代码</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">minimumSum</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">min_r</span><span class="params">(nums.size())</span></span>;</span><br><span class="line">        min_r[nums.<span class="built_in">size</span>()<span class="number">-1</span>] = nums[nums.<span class="built_in">size</span>()<span class="number">-1</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=nums.<span class="built_in">size</span>()<span class="number">-2</span>; i&gt;=<span class="number">0</span>; i--)&#123;</span><br><span class="line">            min_r[i] = <span class="built_in">min</span>(min_r[i+<span class="number">1</span>], nums[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> ans = INT_MAX;</span><br><span class="line">        <span class="type">int</span> pre = nums[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>; i&lt;nums.<span class="built_in">size</span>()<span class="number">-1</span>; i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(pre &lt; nums[i] &amp;&amp; nums[i] &gt; min_r[i+<span class="number">1</span>])&#123;</span><br><span class="line">                ans = <span class="built_in">min</span>(ans, pre + nums[i] + min_r[i+<span class="number">1</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">            pre = <span class="built_in">min</span>(pre, nums[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans == INT_MAX ? <span class="number">-1</span> : ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></div>
+
+<p>这题难得和灵神思路一样</p>
+<p><a class="link"   href="https://leetcode.cn/problems/minimum-sum-of-mountain-triplets-ii/solutions/2493548/mei-ju-numsj-qian-hou-zhui-fen-jie-pytho-tskf/" >同类题型 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h2 id="合法分组的最少组数"><a href="#合法分组的最少组数" class="headerlink" title="合法分组的最少组数"></a><a class="link"   href="https://leetcode.cn/problems/minimum-number-of-groups-to-create-a-valid-assignment/" >合法分组的最少组数 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></h2>]]></content>
+      <categories>
+        <category>周赛</category>
+      </categories>
+  </entry>
+  <entry>
     <title>差分数组</title>
     <url>/2023/09/10/Algorithm/diff-array/</url>
     <content><![CDATA[<h1 id="差分数组"><a href="#差分数组" class="headerlink" title="差分数组"></a>差分数组</h1><p>这是个做题技巧</p>
@@ -263,77 +217,6 @@
       </categories>
       <tags>
         <tag>差分</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>HTTP协议 | URI</title>
-    <url>/2023/08/28/Web/http-01-url/</url>
-    <content><![CDATA[<p>超文本传输协议（Hypertext Transfer Protocol）是一个用于传输超媒体文档（例如 HTML）的应用层协议。它是为 Web 浏览器与 Web 服务器之间的通信而设计的，但也可以用于其他目的。HTTP 遵循经典的客户端—服务端模型，客户端打开一个连接以发出请求，然后等待直到收到服务器端响应。HTTP 是无状态协议，这意味着服务器不会在两个请求之间保留任何数据（状态）。</p>
-<p>详情：<a class="link"   href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP" >MDN <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<h1 id="URI-与-URL-与-URN"><a href="#URI-与-URL-与-URN" class="headerlink" title="URI 与 URL 与 URN"></a>URI 与 URL 与 URN</h1><div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;">
-    <iframe src="//player.bilibili.com/player.html?aid=97740141&bvid=BV1JE411N7rE&cid=166850547&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position:absolute; height: 100%; width: 100%;"> </iframe>
-</div>
-
-<h3 id="统一资源标识符-URI"><a href="#统一资源标识符-URI" class="headerlink" title="统一资源标识符 URI"></a>统一资源标识符 URI</h3><p>在 Http 请求中会包含多种类型的 <strong>资源</strong>，为了正确地访问到确定位置的资源，我们使用 <strong>URI</strong> (Uniform Resource Identifier) <strong>统一资源标识符</strong>来定位物理资源，以便请求访问。它是一个概念，并不限制具体表现格式，只是规定了是一种字符串</p>
-<p>常见的 URI 包括 URL 和 URN 两种形式</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://z1.ax1x.com/2023/10/17/piC7Ew9.md.png"
-                      alt="piC7Ew9.md.png"
-                ></p>
-<h3 id="统一资源定位符-URL"><a href="#统一资源定位符-URL" class="headerlink" title="统一资源定位符 URL"></a>统一资源定位符 URL</h3><p>URI 的最常见形式是统一资源定位符 (Uniform Resource Locator)，也被称为 Web 地址，它是对可以从互联网上得到的资源的位置和访问方法的一种简洁的表示，是互联网上标准资源的地址。</p>
-<p>URL 的常见定义格式为：</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">scheme://host[:port]/path/…/[;url-params][?query-string][#anchor]</span><br></pre></td></tr></table></figure></div>
-<p>其中各字段解释如下：</p>
-<table>
-<thead>
-<tr>
-<th>字段</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>scheme</td>
-<td>有我们很熟悉的http、https、ftp以及著名的ed2k，迅雷的thunder等。</td>
-</tr>
-<tr>
-<td>host</td>
-<td>HTTP服务器的IP地址或者域名</td>
-</tr>
-<tr>
-<td>port</td>
-<td>HTTP服务器的默认端口是80，这种情况下端口号可以省略。如果使用了别的端口，必须指明，例如tomcat的默认端口是8080</td>
-</tr>
-<tr>
-<td>path</td>
-<td>访问资源的路径</td>
-</tr>
-<tr>
-<td>url-params</td>
-<td>所带参数</td>
-</tr>
-<tr>
-<td>query-string</td>
-<td>发送给http服务器的数据</td>
-</tr>
-<tr>
-<td>anchor</td>
-<td>锚点定位</td>
-</tr>
-</tbody></table>
-<p>关于更多 URL 的语法详见：<a class="link"   href="https://url.spec.whatwg.org/" >URL Standard <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<h3 id="统一资源名称-URN"><a href="#统一资源名称-URN" class="headerlink" title="统一资源名称 URN"></a>统一资源名称 URN</h3><p>URN 是另一种形式的 URI，它通过特定命名空间中的唯一名称来标识资源</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">urn:isbn:9780141036144 -&gt; 乔治·奥威尔所著的《1984》</span><br><span class="line">urn:ietf:rfc:7230 -&gt; IETF 规范 7230，超文本传输 协议 (HTTP/1.1)：Message Syntax and Routing</span><br></pre></td></tr></table></figure></div>
-<p>由于根据名称解析位置需要解析器，这一方法并不常用，不多赘述</p>
-<h1 id="URI-语法"><a href="#URI-语法" class="headerlink" title="URI 语法"></a>URI 语法</h1><h3 id="方案与协议"><a href="#方案与协议" class="headerlink" title="方案与协议"></a>方案与协议</h3><p>随着技术的迭代更新和资源的丰富，URI 采用的方案也一直在更新<br><strong><a class="link"   href="https://www.iana.org/assignments/uri-schemes/uri-schemes.xhtml" >IANA <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></strong> 维护着一个已经标准化并被广泛使用的URI方案的注册表。URI 方案的一些示例包括http、https、ftp、mailto、tel 和 urn</p>
-<p>现行格式参见 <strong><a class="link"   href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Basics_of_HTTP/Identifying_resources_on_the_Web#%E7%BB%9F%E4%B8%80%E8%B5%84%E6%BA%90%E6%A0%87%E8%AF%86%E7%AC%A6%E7%9A%84%E8%AF%AD%E6%B3%95_uri" >MDN <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></strong></p>
-]]></content>
-      <categories>
-        <category>Web</category>
-      </categories>
-      <tags>
-        <tag>Http</tag>
       </tags>
   </entry>
   <entry>
@@ -415,6 +298,231 @@
 ]]></content>
       <categories>
         <category>算法</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>A Survey on Advanced Persistent Threats: Techniques, Solutions, Challenges, and Research Opportunities</title>
+    <url>/2023/10/03/Papers/A-survey-on-APT/</url>
+    <content><![CDATA[<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><ul>
+<li>APT攻击越来越深入</li>
+<li>很难实现全攻击面的APT检测</li>
+<li>本文介绍了各个阶段可能的攻击方法</li>
+</ul>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><ul>
+<li>APT防御应该在各个阶段</li>
+</ul>
+<h2 id="Section-Ⅱ-Definition-of-APT"><a href="#Section-Ⅱ-Definition-of-APT" class="headerlink" title="Section Ⅱ : Definition of APT"></a>Section Ⅱ : Definition of APT</h2><h3 id="Advanced-Persistent-Threat"><a href="#Advanced-Persistent-Threat" class="headerlink" title="Advanced Persistent Threat"></a>Advanced Persistent Threat</h3><ul>
+<li>Advanced : 攻击者很rich，有高级工具可以使用，保证攻击的持久性和有效性</li>
+<li>Persistent : 一旦进入系统，长时间停留，依靠各种手段绕过检测</li>
+<li>Threat : 收集敏感数据</li>
+</ul>
+<h3 id="APT-or-Targeted-Attack"><a href="#APT-or-Targeted-Attack" class="headerlink" title="APT or Targeted Attack ?"></a>APT or Targeted Attack ?</h3><p>APT攻击与传统攻击的主要区别<br><a href="https://imgse.com/i/pPOpBoq"><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://z1.ax1x.com/2023/10/03/pPOpBoq.md.png"
+                      alt="pPOpBoq.md.png"
+                ></a></p>
+<p>如下满足其一则不属于 APT attack：</p>
+<ul>
+<li>攻击有多种预防措施</li>
+<li>攻击者不需要为了防御做过多的准备</li>
+<li>攻击在其变体中没有表现出任何新特性</li>
+</ul>
+<p>NIST(National Institute of Standards and Technology)描述的APT攻击的三个目标：</p>
+<ul>
+<li>Steal Organization Data</li>
+<li>Undermine Organization’s Critical Aspects</li>
+<li>Position for Future</li>
+</ul>
+<h3 id="How-APT-attacks-are-made"><a href="#How-APT-attacks-are-made" class="headerlink" title="How APT attacks are made?"></a>How APT attacks are made?</h3><p>APT Attack Tree<br>文章作者归纳了一棵通用攻击树，大概包含APT攻击所需要实施的步骤，并分别根据NIST的三个目标做了细化<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://z1.ax1x.com/2023/10/03/pPOPFds.md.png"
+                      alt="pPOPFds.md.png"
+                ></p>
+<p>在结合了其他文章后，作者归纳了如下流程图：<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://z1.ax1x.com/2023/10/03/pPOPaOe.md.png"
+                      alt="pPOPaOe.md.png"
+                ></p>
+
+  <div class="note-large red">
+    <div class="notel-title rounded-t-lg p-3 font-bold text-lg flex flex-row gap-2 items-center">
+      <p>侦察</p>
+
+    </div>
+    <div class="notel-content">
+      <p>以被动攻击为主，作为前期情报搜集工作，利用社工、渗透测试等方式，了解网络拓扑以及相关信息，为后期做准备。</p>
+
+    </div>
+  </div>
+
+
+  <div class="note-large red">
+    <div class="notel-title rounded-t-lg p-3 font-bold text-lg flex flex-row gap-2 items-center">
+      <p>建立落脚点</p>
+
+    </div>
+    <div class="notel-content">
+      <p>在前期侦察过程后，能够发现设施的脆弱性，尝试利用脆弱性干到内网里。通常包括如下手段：</p>
+<ul>
+<li>已知漏洞利用，包括已经在用户端中安装的软件存在的可利用的漏洞</li>
+<li>恶意软件，通过在用户端运行定制开发的恶意软件达到攻击效果</li>
+<li>网络钓鱼，针对特定目标发送钓鱼邮件，负载恶意软件，用户在运行或下载后使攻击者进驻网络</li>
+<li>0day漏洞，程序存在的漏洞，但并未被公开修复，且未被告知，这种利用方式不多但往往很致命</li>
+<li>网络下载</li>
+<li>水坑攻击，字面意思，在目标必经之路上设置陷阱，通常是在目标经常使用的网站中注入陷阱。目标一旦访问该网站，就会下载恶意负载，帮助攻击者进入内网</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://z1.ax1x.com/2023/10/04/pPOgcCT.md.png"
+                      alt="pPOgcCT.md.png"
+                ></p>
+<p>攻击者一旦进入到内网中，就会低调行事，尝试建立 C&amp;C (Commadn and Control) 通信通道，以部署后续攻击，在此期间，程序要防止自己被检测工具发现<br>大多数恶意程序通过 DNS 服务来进行定位，以向总部发出自己的位置。</p>
+
+    </div>
+  </div>
+
+
+  <div class="note-large red">
+    <div class="notel-title rounded-t-lg p-3 font-bold text-lg flex flex-row gap-2 items-center">
+      <p>横向探索&#x2F;不被发现</p>
+
+    </div>
+    <div class="notel-content">
+      <p>一旦进入目标系统，获得了其访问权限，则可以传播到内网的其他系统中，访问更多资源。<br>有时需要提权、密钥转储等技术以获得给更多信息。具体所选择的方法取决于具体环境。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://z1.ax1x.com/2023/10/04/pPOgJ4f.md.png"
+                      alt="pPOgJ4f.md.png"
+                ></p>
+<p>文章提到了一些密码工具有：mimikatz、Windows Credential Editor<br>(WCE)<br>其核心是在内存中解析并提取 Windows本地安全授权(LSA)</p>
+
+    </div>
+  </div>
+
+
+  <div class="note-large red">
+    <div class="notel-title rounded-t-lg p-3 font-bold text-lg flex flex-row gap-2 items-center">
+      <p>报告信息&#x2F;实施拦截</p>
+
+    </div>
+    <div class="notel-content">
+      <p>攻击者将收集到的数据输出到 C&amp;C 服务器，由于大多数 IDS 仅对入口检测，而不对出口过滤，因此这些泄露可能无法被检测。<br>通常数据泄露会分成多个批次分配到不同IP的主机上。</p>
+
+    </div>
+  </div>
+
+
+  <div class="note-large red">
+    <div class="notel-title rounded-t-lg p-3 font-bold text-lg flex flex-row gap-2 items-center">
+      <p>后渗透工作</p>
+
+    </div>
+    <div class="notel-content">
+      <p>攻击者不单单要考虑渗透成功，还要考虑可持续性，即可以随时解除或保持攻击。同时还要考虑到在攻击过程中的任何一部都有可能被日志记录并作为溯源的依据。</p>
+
+    </div>
+  </div>
+
+
+  <div class="note p-4 mb-4 rounded-small default">
+    <p>关于 C&amp;C (Command and Control Communication)</p>
+
+  </div>
+<p>这是在被攻击主机与发起方进行沟通的隧道，常用的通信协议包括Http(s)、IRC、P2P以及其他自定义协议。<br>由于大多数企业视Http连接合法，并且其他流量具有明显的特征，容易被标记，因此通常采用Http协议。</p>
+<h2 id="Section-Ⅲ-Case-Study"><a href="#Section-Ⅲ-Case-Study" class="headerlink" title="Section Ⅲ : Case Study"></a>Section Ⅲ : Case Study</h2><h2 id="Section-Ⅳ-Defense-Methods"><a href="#Section-Ⅳ-Defense-Methods" class="headerlink" title="Section Ⅳ : Defense Methods"></a>Section Ⅳ : Defense Methods</h2><p>防治 APT 攻击应该以纵深防御原则，即在每一层都设有检测<br>即使攻击者攻破第一层后，还有后面一系列安全措施，不至于功亏一篑</p>
+<p>大概分类如图：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://z1.ax1x.com/2023/10/05/pPXPaDg.md.png"
+                      alt="pPXPaDg.md.png"
+                ></p>
+<ol>
+<li><p>监控 Monitoring<br>包括 磁盘监控（文件&#x2F;CPU占用）、内存监控、流量监控（端口、时间、大小等）、代码审计、日志审计</p>
+</li>
+<li><p>检测 Detection<br>包括 异常检测、模式匹配、</p>
+</li>
+</ol>
+<h4 id="异常检测"><a href="#异常检测" class="headerlink" title="异常检测"></a>异常检测</h4><p>文章列出了目前存在的 APT 的应对策略：<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://z1.ax1x.com/2023/10/05/pPXewh4.md.png"
+                      alt="pPXewh4.md.png"
+                ></p>
+<p>这些手段往往是静态的，攻击者往往会尝试绕过这些检测</p>
+
+  <div class="note p-4 mb-4 rounded-small red">
+    <p>方法论</p>
+
+  </div>
+<p>Hodge &amp; Austin 将异常检测分为了三类：无监督聚类、有监督分类、半监督学习<br>作者进一步将异常检测方法分为统计异常检测、基于神经网络的异常检测和基于机器学习的异常检测</p>
+<p>Chandola 等人提出了另外两种检测方法：information theoretic anomaly detection 和 spectral anomaly detection techniques<br>（信息理论异常检测技术和光谱异常检测技术）</p>
+<p>Chandola 等人又从离散序列的异常检测出发，将其检测方法分为三类：sequence-based，contiguous sub-sequence based， pattern frequency-based （序列检测、连续序列检测、频率检测）</p>
+<p>Mehmood 等人总结了通过机器学习实现的异常检测系统，包括：SVM、Fuzzy Logic、Genetic Algorithm、K-means、ANN、Association Rule 等方法</p>
+<p>作者列举了ML在异常检测中各阶段的作用以及挑战：<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://z1.ax1x.com/2023/10/05/pPXGy79.md.png"
+                      alt="pPXGy79.md.png"
+                ></p>
+<h4 id="模式匹配"><a href="#模式匹配" class="headerlink" title="模式匹配"></a>模式匹配</h4><p>这是相对较老的技术，通过观察进程和&#x2F;或应用程序的行为模式，可以检测到恶意行为</p>
+<ol start="3">
+<li>Mitigation</li>
+</ol>
+]]></content>
+      <categories>
+        <category>论文</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>LC-362</title>
+    <url>/2023/09/10/LeetCode/LC-362/</url>
+    <content><![CDATA[<h2 id="成绩"><a href="#成绩" class="headerlink" title="成绩"></a>成绩</h2><p><img lazyload="" src="/images/loading.svg" data-src="https://s1.ax1x.com/2023/09/10/pPcoBMF.png" alt="成绩"></p>
+<p>本周周赛依然仅通过 3 题，我好没本领<br>好好复盘一下</p>
+<h2 id="复盘"><a href="#复盘" class="headerlink" title="复盘"></a>复盘</h2><h3 id="8029-与车相交的点"><a href="#8029-与车相交的点" class="headerlink" title="8029. 与车相交的点"></a><a class="link" href="https://leetcode.cn/problems/points-that-intersect-with-cars/">8029. 与车相交的点 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></h3><p>比赛时写的 shitcode 如下：</p>
+<p><strong>ShitCode</strong></p>
+<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="5.832ex" height="2.452ex" role="img" focusable="false" viewBox="0 -833.9 2577.6 1083.9"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D442" d="M740 435Q740 320 676 213T511 42T304 -22Q207 -22 138 35T51 201Q50 209 50 244Q50 346 98 438T227 601Q351 704 476 704Q514 704 524 703Q621 689 680 617T740 435ZM637 476Q637 565 591 615T476 665Q396 665 322 605Q242 542 200 428T157 216Q157 126 200 73T314 19Q404 19 485 98T608 313Q637 408 637 476Z"></path></g><g data-mml-node="mo" transform="translate(763,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="msup" transform="translate(1152,0)"><g data-mml-node="mi"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mn" transform="translate(633,363) scale(0.707)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g></g><g data-mml-node="mo" transform="translate(2188.6,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container></p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> {</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">numberOfPoints</span><span class="params">(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; nums)</span> </span>{</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">n</span><span class="params">(<span class="number">101</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> car:nums){</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> i=car[<span class="number">0</span>];i&lt;=car[<span class="number">1</span>];i++)</span><br><span class="line">                n[i] = <span class="number">1</span>;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">accumulate</span>(n.<span class="built_in">begin</span>() , n.<span class="built_in">end</span>() , <span class="number">0</span>);</span><br><span class="line">    }</span><br><span class="line">};</span><br></pre></td></tr></table></figure></div>
+
+<p>本题考点为 <strong>差分数组</strong> ，属于基础算法<br>详见 <a href="/post/LeetCode/LeetCode-diff-array">差分数组</a></p>
+<p><strong>GoodCode</strong></p>
+<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="4.844ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 2141 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D442" d="M740 435Q740 320 676 213T511 42T304 -22Q207 -22 138 35T51 201Q50 209 50 244Q50 346 98 438T227 601Q351 704 476 704Q514 704 524 703Q621 689 680 617T740 435ZM637 476Q637 565 591 615T476 665Q396 665 322 605Q242 542 200 428T157 216Q157 126 200 73T314 19Q404 19 485 98T608 313Q637 408 637 476Z"></path></g><g data-mml-node="mo" transform="translate(763,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mi" transform="translate(1152,0)"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(1752,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container></p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> {</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">numberOfPoints</span><span class="params">(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; nums)</span> </span>{</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">diff</span><span class="params">(<span class="number">102</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> num : nums){</span><br><span class="line">            diff[num[<span class="number">0</span>]] += <span class="number">1</span>;</span><br><span class="line">            diff[num[<span class="number">1</span>] + <span class="number">1</span>] -= <span class="number">1</span>;</span><br><span class="line">        }</span><br><span class="line">        <span class="type">int</span> sum = <span class="number">0</span>, ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>; i&lt;=<span class="number">100</span>; i++){</span><br><span class="line">            sum += diff[i];</span><br><span class="line">            <span class="keyword">if</span>(sum &gt; <span class="number">0</span>)</span><br><span class="line">                ans++;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    }</span><br><span class="line">};</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="2849-判断能否在给定时间到达单元格"><a href="#2849-判断能否在给定时间到达单元格" class="headerlink" title="2849. 判断能否在给定时间到达单元格"></a><a class="link" href="https://leetcode.cn/problems/determine-if-a-cell-is-reachable-at-a-given-time/">2849. 判断能否在给定时间到达单元格 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></h3><p>这题只要发现数学规律即可<br>首先发现最优走法是先走斜线再走直线 长度即为 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="11.999ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 5303.7 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D45A" d="M21 287Q22 293 24 303T36 341T56 388T88 425T132 442T175 435T205 417T221 395T229 376L231 369Q231 367 232 367L243 378Q303 442 384 442Q401 442 415 440T441 433T460 423T475 411T485 398T493 385T497 373T500 364T502 357L510 367Q573 442 659 442Q713 442 746 415T780 336Q780 285 742 178T704 50Q705 36 709 31T724 26Q752 26 776 56T815 138Q818 149 821 151T837 153Q857 153 857 145Q857 144 853 130Q845 101 831 73T785 17T716 -10Q669 -10 648 17T627 73Q627 92 663 193T700 345Q700 404 656 404H651Q565 404 506 303L499 291L466 157Q433 26 428 16Q415 -11 385 -11Q372 -11 364 -4T353 8T350 18Q350 29 384 161L420 307Q423 322 423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 181Q151 335 151 342Q154 357 154 369Q154 405 129 405Q107 405 92 377T69 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mi" transform="translate(878,0)"><path data-c="1D44E" d="M33 157Q33 258 109 349T280 441Q331 441 370 392Q386 422 416 422Q429 422 439 414T449 394Q449 381 412 234T374 68Q374 43 381 35T402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487Q506 153 506 144Q506 138 501 117T481 63T449 13Q436 0 417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157ZM351 328Q351 334 346 350T323 385T277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q217 26 254 59T298 110Q300 114 325 217T351 328Z"></path></g><g data-mml-node="mi" transform="translate(1407,0)"><path data-c="1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"></path></g><g data-mml-node="mo" transform="translate(1979,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mi" transform="translate(2368,0)"><path data-c="1D451" d="M366 683Q367 683 438 688T511 694Q523 694 523 686Q523 679 450 384T375 83T374 68Q374 26 402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487H491Q506 153 506 145Q506 140 503 129Q490 79 473 48T445 8T417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157Q33 205 53 255T101 341Q148 398 195 420T280 442Q336 442 364 400Q369 394 369 396Q370 400 396 505T424 616Q424 629 417 632T378 637H357Q351 643 351 645T353 664Q358 683 366 683ZM352 326Q329 405 277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q233 26 290 98L298 109L352 326Z"></path></g><g data-mml-node="mi" transform="translate(2888,0)"><path data-c="1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"></path></g><g data-mml-node="mo" transform="translate(3460,0)"><path data-c="2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path></g><g data-mml-node="mi" transform="translate(3904.7,0)"><path data-c="1D451" d="M366 683Q367 683 438 688T511 694Q523 694 523 686Q523 679 450 384T375 83T374 68Q374 26 402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487H491Q506 153 506 145Q506 140 503 129Q490 79 473 48T445 8T417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157Q33 205 53 255T101 341Q148 398 195 420T280 442Q336 442 364 400Q369 394 369 396Q370 400 396 505T424 616Q424 629 417 632T378 637H357Q351 643 351 645T353 664Q358 683 366 683ZM352 326Q329 405 277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q233 26 290 98L298 109L352 326Z"></path></g><g data-mml-node="mi" transform="translate(4424.7,0)"><path data-c="1D466" d="M21 287Q21 301 36 335T84 406T158 442Q199 442 224 419T250 355Q248 336 247 334Q247 331 231 288T198 191T182 105Q182 62 196 45T238 27Q261 27 281 38T312 61T339 94Q339 95 344 114T358 173T377 247Q415 397 419 404Q432 431 462 431Q475 431 483 424T494 412T496 403Q496 390 447 193T391 -23Q363 -106 294 -155T156 -205Q111 -205 77 -183T43 -117Q43 -95 50 -80T69 -58T89 -48T106 -45Q150 -45 150 -87Q150 -107 138 -122T115 -142T102 -147L99 -148Q101 -153 118 -160T152 -167H160Q177 -167 186 -165Q219 -156 247 -127T290 -65T313 -9T321 21L315 17Q309 13 296 6T270 -6Q250 -11 231 -11Q185 -11 150 11T104 82Q103 89 103 113Q103 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(4914.7,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container><br>但题目要求的是恰好走 t 步可以到达，那就在周围转圈呗，所以直观感受只要是 t &gt; 最优路线 均满足<br>但要考虑 <strong>特殊用例</strong>：<br><em>起点终点重合并且t=1</em>，这时候就不满足了</p>
+<p><strong>GoodCode</strong></p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> {</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isReachableAtTime</span><span class="params">(<span class="type">int</span> sx, <span class="type">int</span> sy, <span class="type">int</span> fx, <span class="type">int</span> fy, <span class="type">int</span> t)</span> </span>{</span><br><span class="line">        <span class="type">int</span> del = <span class="built_in">max</span>(<span class="built_in">abs</span>(fx - sx), <span class="built_in">abs</span>(fy- sy));</span><br><span class="line">        <span class="keyword">if</span>(del == <span class="number">0</span> &amp;&amp; t == <span class="number">1</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">return</span> t &gt;= del;</span><br><span class="line">    }</span><br><span class="line">};</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="2850-将石头分散到网格图的最少移动次数"><a href="#2850-将石头分散到网格图的最少移动次数" class="headerlink" title="2850. 将石头分散到网格图的最少移动次数"></a><a class="link" href="https://leetcode.cn/problems/minimum-moves-to-spread-stones-over-grid/">2850. 将石头分散到网格图的最少移动次数 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></h3><p>事实上就是把 所有空位 和 石头大于 1 的位置 两两匹配，然后求得总的最小距离即可。这是一个全排列问题。</p>
+<p>想法没错，但就是不会手搓全排列，比赛的时候耍了个赖皮，用的 STL 里的 <code>next_permutation(vector.begin(), vector.end())</code>，侥幸过了</p>
+<p>用这道题复习一下 <a class="link" href="https://leetcode.cn/problems/permutations/description/">全排列 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>这里使用回溯法</p>
+<ul>
+<li>当前操作：选择一项加入排列，若全部选完则返回</li>
+<li>子问题：构造排列 i ~ n 的部分</li>
+<li>下一个子问题：构造 i + 1 ~ n 的部分</li>
+</ul>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> {</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; ans;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; path;</span><br><span class="line">    vector&lt;<span class="type">bool</span>&gt; status;</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">permute</span>(vector&lt;<span class="type">int</span>&gt;&amp; nums) {</span><br><span class="line">        status.<span class="built_in">resize</span>(nums.<span class="built_in">size</span>(), <span class="literal">false</span>);</span><br><span class="line">        <span class="built_in">dfs</span>(nums);</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    }</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span></span>{</span><br><span class="line">        <span class="keyword">if</span>(path.<span class="built_in">size</span>() == nums.<span class="built_in">size</span>()){</span><br><span class="line">            ans.<span class="built_in">emplace_back</span>(path);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;nums.<span class="built_in">size</span>(); i++){</span><br><span class="line">            <span class="keyword">if</span>(status[i])</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            status[i] = <span class="literal">true</span>;</span><br><span class="line">            path.<span class="built_in">emplace_back</span>(nums[i]);</span><br><span class="line">            <span class="built_in">dfs</span>(nums);</span><br><span class="line">            path.<span class="built_in">pop_back</span>();</span><br><span class="line">            status[i] = <span class="literal">false</span>;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">};</span><br></pre></td></tr></table></figure></div>
+
+<p>回顾之后我们再来看此题，思路为：</p>
+<ul>
+<li>构造全排列</li>
+<li>对每一排列计算答案</li>
+<li>返回最小值</li>
+</ul>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> {</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; path;</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; from;</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; to;</span><br><span class="line">    <span class="type">int</span> ans = INT_MAX;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">minimumMoves</span><span class="params">(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; grid)</span> </span>{</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;grid.<span class="built_in">size</span>(); i++){</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>; j&lt;grid.<span class="built_in">size</span>(); j++){</span><br><span class="line">                <span class="keyword">for</span>(<span class="type">int</span> t=<span class="number">1</span>; t&lt;grid[i][j]; t++){</span><br><span class="line">                    from.<span class="built_in">push_back</span>({i,j});</span><br><span class="line">                }</span><br><span class="line">                <span class="keyword">if</span>(grid[i][j] == <span class="number">0</span>)</span><br><span class="line">                    to.<span class="built_in">push_back</span>({i,j});</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        <span class="function">vector&lt;<span class="type">bool</span>&gt; <span class="title">status</span><span class="params">(from.size(), <span class="literal">false</span>)</span></span>;</span><br><span class="line">        <span class="built_in">dfs</span>(status);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(vector&lt;<span class="type">bool</span>&gt;&amp; status)</span></span>{</span><br><span class="line">        <span class="keyword">if</span>(path.<span class="built_in">size</span>() == from.<span class="built_in">size</span>()){</span><br><span class="line">            <span class="type">int</span> t = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;path.<span class="built_in">size</span>(); i++){</span><br><span class="line">                t += <span class="built_in">abs</span>(path[i][<span class="number">0</span>] - to[i][<span class="number">0</span>]) + <span class="built_in">abs</span>(path[i][<span class="number">1</span>] - to[i][<span class="number">1</span>]);</span><br><span class="line">            }</span><br><span class="line">            ans = <span class="built_in">min</span>(ans, t);</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;from.<span class="built_in">size</span>(); i++){</span><br><span class="line">            <span class="keyword">if</span>(status[i])</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            status[i] = <span class="literal">true</span>;</span><br><span class="line">            path.<span class="built_in">emplace_back</span>(from[i]);</span><br><span class="line">            <span class="built_in">dfs</span>(status);</span><br><span class="line">            status[i] = <span class="literal">false</span>;</span><br><span class="line">            path.<span class="built_in">pop_back</span>();</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">};</span><br></pre></td></tr></table></figure></div>
+
+<p>写完以后发现还是没有 STL 好用</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> {</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">minimumMoves</span><span class="params">(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; grid)</span> </span>{</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; from;</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; to;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;grid.<span class="built_in">size</span>(); i++){</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>; j&lt;grid.<span class="built_in">size</span>(); j++){</span><br><span class="line">                <span class="keyword">for</span>(<span class="type">int</span> t=<span class="number">1</span>; t&lt;grid[i][j]; t++){</span><br><span class="line">                    from.<span class="built_in">push_back</span>({i,j});</span><br><span class="line">                }</span><br><span class="line">                <span class="keyword">if</span>(grid[i][j] == <span class="number">0</span>)</span><br><span class="line">                    to.<span class="built_in">push_back</span>({i,j});</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        <span class="type">int</span> ans = INT_MAX;</span><br><span class="line">        <span class="keyword">do</span>{</span><br><span class="line">            <span class="type">int</span> t = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;from.<span class="built_in">size</span>(); i++){</span><br><span class="line">                t += <span class="built_in">abs</span>(from[i][<span class="number">0</span>] - to[i][<span class="number">0</span>]) + <span class="built_in">abs</span>(from[i][<span class="number">1</span>] - to[i][<span class="number">1</span>]);</span><br><span class="line">            }</span><br><span class="line">            ans = <span class="built_in">min</span>(ans, t);</span><br><span class="line">        } <span class="keyword">while</span>(<span class="built_in">next_permutation</span>(from.<span class="built_in">begin</span>(), from.<span class="built_in">end</span>()));</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    }</span><br><span class="line">};</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="2851-字符串转换"><a href="#2851-字符串转换" class="headerlink" title="2851. 字符串转换"></a><a class="link" href="https://www.bilibili.com/video/BV1U34y1N7Pe/?vd_source=c73bd6935474d65679017c10379807a3">2851. 字符串转换 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></h3>]]></content>
+      <categories>
+        <category>周赛</category>
       </categories>
   </entry>
   <entry>
@@ -562,6 +670,77 @@
       </tags>
   </entry>
   <entry>
+    <title>HTTP协议 | URI</title>
+    <url>/2023/08/28/Web/http-01-url/</url>
+    <content><![CDATA[<p>超文本传输协议（Hypertext Transfer Protocol）是一个用于传输超媒体文档（例如 HTML）的应用层协议。它是为 Web 浏览器与 Web 服务器之间的通信而设计的，但也可以用于其他目的。HTTP 遵循经典的客户端—服务端模型，客户端打开一个连接以发出请求，然后等待直到收到服务器端响应。HTTP 是无状态协议，这意味着服务器不会在两个请求之间保留任何数据（状态）。</p>
+<p>详情：<a class="link"   href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP" >MDN <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h1 id="URI-与-URL-与-URN"><a href="#URI-与-URL-与-URN" class="headerlink" title="URI 与 URL 与 URN"></a>URI 与 URL 与 URN</h1><div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;">
+    <iframe src="//player.bilibili.com/player.html?aid=97740141&bvid=BV1JE411N7rE&cid=166850547&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position:absolute; height: 100%; width: 100%;"> </iframe>
+</div>
+
+<h3 id="统一资源标识符-URI"><a href="#统一资源标识符-URI" class="headerlink" title="统一资源标识符 URI"></a>统一资源标识符 URI</h3><p>在 Http 请求中会包含多种类型的 <strong>资源</strong>，为了正确地访问到确定位置的资源，我们使用 <strong>URI</strong> (Uniform Resource Identifier) <strong>统一资源标识符</strong>来定位物理资源，以便请求访问。它是一个概念，并不限制具体表现格式，只是规定了是一种字符串</p>
+<p>常见的 URI 包括 URL 和 URN 两种形式</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://z1.ax1x.com/2023/10/17/piC7Ew9.md.png"
+                      alt="piC7Ew9.md.png"
+                ></p>
+<h3 id="统一资源定位符-URL"><a href="#统一资源定位符-URL" class="headerlink" title="统一资源定位符 URL"></a>统一资源定位符 URL</h3><p>URI 的最常见形式是统一资源定位符 (Uniform Resource Locator)，也被称为 Web 地址，它是对可以从互联网上得到的资源的位置和访问方法的一种简洁的表示，是互联网上标准资源的地址。</p>
+<p>URL 的常见定义格式为：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">scheme://host[:port]/path/…/[;url-params][?query-string][#anchor]</span><br></pre></td></tr></table></figure></div>
+<p>其中各字段解释如下：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>scheme</td>
+<td>有我们很熟悉的http、https、ftp以及著名的ed2k，迅雷的thunder等。</td>
+</tr>
+<tr>
+<td>host</td>
+<td>HTTP服务器的IP地址或者域名</td>
+</tr>
+<tr>
+<td>port</td>
+<td>HTTP服务器的默认端口是80，这种情况下端口号可以省略。如果使用了别的端口，必须指明，例如tomcat的默认端口是8080</td>
+</tr>
+<tr>
+<td>path</td>
+<td>访问资源的路径</td>
+</tr>
+<tr>
+<td>url-params</td>
+<td>所带参数</td>
+</tr>
+<tr>
+<td>query-string</td>
+<td>发送给http服务器的数据</td>
+</tr>
+<tr>
+<td>anchor</td>
+<td>锚点定位</td>
+</tr>
+</tbody></table>
+<p>关于更多 URL 的语法详见：<a class="link"   href="https://url.spec.whatwg.org/" >URL Standard <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h3 id="统一资源名称-URN"><a href="#统一资源名称-URN" class="headerlink" title="统一资源名称 URN"></a>统一资源名称 URN</h3><p>URN 是另一种形式的 URI，它通过特定命名空间中的唯一名称来标识资源</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">urn:isbn:9780141036144 -&gt; 乔治·奥威尔所著的《1984》</span><br><span class="line">urn:ietf:rfc:7230 -&gt; IETF 规范 7230，超文本传输 协议 (HTTP/1.1)：Message Syntax and Routing</span><br></pre></td></tr></table></figure></div>
+<p>由于根据名称解析位置需要解析器，这一方法并不常用，不多赘述</p>
+<h1 id="URI-语法"><a href="#URI-语法" class="headerlink" title="URI 语法"></a>URI 语法</h1><h3 id="方案与协议"><a href="#方案与协议" class="headerlink" title="方案与协议"></a>方案与协议</h3><p>随着技术的迭代更新和资源的丰富，URI 采用的方案也一直在更新<br><strong><a class="link"   href="https://www.iana.org/assignments/uri-schemes/uri-schemes.xhtml" >IANA <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></strong> 维护着一个已经标准化并被广泛使用的URI方案的注册表。URI 方案的一些示例包括http、https、ftp、mailto、tel 和 urn</p>
+<p>现行格式参见 <strong><a class="link"   href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Basics_of_HTTP/Identifying_resources_on_the_Web#%E7%BB%9F%E4%B8%80%E8%B5%84%E6%BA%90%E6%A0%87%E8%AF%86%E7%AC%A6%E7%9A%84%E8%AF%AD%E6%B3%95_uri" >MDN <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></strong></p>
+]]></content>
+      <categories>
+        <category>Web</category>
+      </categories>
+      <tags>
+        <tag>Http</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>HTTP协议 | 消息概述</title>
     <url>/2023/08/29/Web/http-02-preview/</url>
     <content><![CDATA[<!-- # HTTP 消息概述 -->
@@ -673,96 +852,6 @@
       <tags>
         <tag>Http</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Release or Debug ?</title>
-    <url>/2023/10/10/other/release-vs-debug/</url>
-    <content><![CDATA[<p>前几天在做一个实验的时候用到了 VS2022 的调试器，突然发现用 release 版本下依然可以调试<br>但根据已有的浅显的知识，release 版本是优化后的版本，不会附加任何调试信息，那 VS 又是如何调试的呢？</p>
-<p>百度之后发现说有个叫做 .pdb 的文件，在调试时会装载到文件中，以提供额外的辅助信息</p>
-<p>光说肯定是不行的，为此我需要做几件事来解决我的疑惑：</p>
-<ul>
-<li>对比查看 Debug 和 Release 版本下生成的文件</li>
-<li>查看 .pdb 文件里究竟是什么</li>
-<li>.pdb 是如何被装在使用的</li>
-</ul>
-<h2 id="对比-Debug-和-Release-版本的区别"><a href="#对比-Debug-和-Release-版本的区别" class="headerlink" title="对比 Debug 和 Release 版本的区别"></a>对比 Debug 和 Release 版本的区别</h2><p>为了方便测试，编写如下demo：</p>
-<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="type">int</span> a = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++)&#123;</span><br><span class="line">		a++;</span><br><span class="line">	&#125;</span><br><span class="line">	std::cout &lt;&lt; a &lt;&lt; std::endl;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-
-<p>编译器选择：<br>电脑上用的 VS2022 集成了 msvc 编译器以及调试器，但由于其项目构建的复杂性以及过大的体量，选择使用VSCode，但编译器仍为 msvc<br>在用 VSCode 扫描可用编译器时，发现了这么多版本：</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://z1.ax1x.com/2023/10/10/pPxhUAg.md.png"
-                      alt="pPxhUAg.md.png"
-                ></p>
-<p>x86: 编译器为 x86 版本，输出文件为 x86<br>amd64_x86: 编译器为 amd64 版本，输出文件为 x86<br>amd64: 编译器为 amd64 版本，输出文件为 amd64<br>x86_amd64: 编译器为 x86 版本，输出文件为 amd64</p>
-<div class="note default"><p>关于 x64 和 amd64</p>
-</div>
-<p>在 64 位指令系统中，有两家公司在做<br>一家是 Intel 推出的IA-64指令集，但不兼容 IA-32（即x86架构使用的）指令集<br>另一家是 AMD 公司推出的 AMD64 指令集，兼容了 IA-32<br>显而易见，IA-64会被淘汰，更何况 IA-64 比 AMD64 出现更晚</p>
-<p>最后Intel也不得不采用 AMD64 指令系统，但换了个名字，叫x86_64架构（屏蔽掉了 AMD 的牌子），简称 x64<br>因此，现在来讲，x86_64、x64、AMD64基本上是一个东西</p>
-<p>不纠结了，选择 amd64 版本的编译器</p>
-<div class="note default"><p>使用 VSCode 实验情况</p>
-</div>
-
-<p>使用 Debug 模式下编译生成两个文件：</p>
-<ul>
-<li>main.exe 53 KB</li>
-<li>main.pdb 1116 KB</li>
-</ul>
-<p>使用 Release 模式下编译生成一个文件：</p>
-<ul>
-<li>main.exe 10 KB</li>
-</ul>
-<p>直接比较大小的话，发现 Release 版本明显比 Debug 版本文件小很多</p>
-<p>尝试使用 IDA 逆向:</p>
-<div class="tabs" id="tab-页面内不重复的id"><ul class="nav-tabs"><li class="tab active"><a class="#页面内不重复的id-1">Release 版本</a></li><li class="tab"><a class="#页面内不重复的id-2">Debug 版本</a></li></ul><div class="tab-content"><div class="tab-pane active" id="页面内不重复的id-1"><p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://z1.ax1x.com/2023/10/10/pPxjaLQ.md.png"
-                      alt="pPxjaLQ.md.png"
-                ></p>
-<p>Release 版本没有了循环体，通过反编译插件查看反编译后的代码：</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://z1.ax1x.com/2023/10/10/pPxjvTA.png"
-                      alt="pPxjvTA.png"
-                ></p>
-<p>其实际上相当于直接输出了 100: <code>cout &lt;&lt; 100 &lt;&lt; endl</code></p>
-<p>另外，在没有 .pdb 文件的情况下打断点是程序不会在断点停止，无法调试</p></div><div class="tab-pane" id="页面内不重复的id-2"><p>Debug 版本分为两个文件，main.exe 和 main.pdb<br>在用 IDA 打开 此文件时，会提示 main.exe 链接了 pdb文件，需要辅助打开</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://z1.ax1x.com/2023/10/10/pPxjBon.md.png"
-                      alt="pPxjBon.md.png"
-                ></p>
-<p>Debug 版本明显有了循环体，对代码没有进行简化</p>
-<p>如果不链接pdb文件，如下：<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://z1.ax1x.com/2023/10/11/pPzy0kn.md.png"
-                      alt="pPzy0kn.md.png"
-                ><br>猜测是由于缺少 pdb 文件中的符号，导致解析出了问题<br>在 IDA 找了一圈后没有发现什么有效的循环体，很奇怪，倒是发现了许多安全信息，类如 security_cookie 之类的字段</p></div></div></div>
-
-<p>在刚才的尝试里发现了在 VSCode 里直接使用其默认配置的 Release 生成方式是不会生成 .pdb 文件的，并不能调试</p>
-<p>这和在 VS2022 里的现象不同，于是又跑回 VS 里生成一遍，发现在 VS2022 里生成了 .pdb 文件，看来应该是生成的配置不同<br>具体配置参见 <a class="link"   href="https://learn.microsoft.com/en-us/visualstudio/debugger/how-to-set-debug-and-release-configurations?view=vs-2022" >Set debug and release configurations in Visual Studio <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<p>关于更多编译选项如下：<br>Debug</p>
-<ul>
-<li>&#x2F;MDd &#x2F;MLd or&#x2F;MTd: Use run-time library for Debug</li>
-<li>&#x2F;Od: Disable optimization</li>
-<li>&#x2F;D “_DEBUG”: Equals to #define _DEBUG, open code like assert</li>
-<li>&#x2F;ZI: Open Edit and Continue database, allows us to modify code while debugging</li>
-<li>&#x2F;GZ: Enable stack frame Run-Time error checking. deprecated. use &#x2F;RTC instead.<br>Release</li>
-<li>&#x2F;MD &#x2F;ML or&#x2F;MT: Use run-time library for Release</li>
-<li>&#x2F;O1: Minimize size</li>
-<li>&#x2F;O2: Maximize speed</li>
-<li>&#x2F;D “NDEBUG”: Close conditional compilation (don’t compile assert)</li>
-<li>&#x2F;GF: Eliminate duplicate strings and pools strings as read-only. If you try to modify strings under &#x2F;GF, an application error occurs.</li>
-</ul>
-<h2 id="pdb-文件里究竟有什么"><a href="#pdb-文件里究竟有什么" class="headerlink" title=".pdb 文件里究竟有什么"></a>.pdb 文件里究竟有什么</h2>]]></content>
-      <categories>
-        <category>其他</category>
-      </categories>
   </entry>
   <entry>
     <title>Overthewire Bandit 通关笔记</title>
@@ -894,136 +983,99 @@
       </categories>
   </entry>
   <entry>
-    <title>A Survey on Advanced Persistent Threats: Techniques, Solutions, Challenges, and Research Opportunities</title>
-    <url>/2023/10/03/Papers/A-survey-on-APT/</url>
-    <content><![CDATA[<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><ul>
-<li>APT攻击越来越深入</li>
-<li>很难实现全攻击面的APT检测</li>
-<li>本文介绍了各个阶段可能的攻击方法</li>
-</ul>
-<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><ul>
-<li>APT防御应该在各个阶段</li>
-</ul>
-<h2 id="Section-Ⅱ-Definition-of-APT"><a href="#Section-Ⅱ-Definition-of-APT" class="headerlink" title="Section Ⅱ : Definition of APT"></a>Section Ⅱ : Definition of APT</h2><h3 id="Advanced-Persistent-Threat"><a href="#Advanced-Persistent-Threat" class="headerlink" title="Advanced Persistent Threat"></a>Advanced Persistent Threat</h3><ul>
-<li>Advanced : 攻击者很rich，有高级工具可以使用，保证攻击的持久性和有效性</li>
-<li>Persistent : 一旦进入系统，长时间停留，依靠各种手段绕过检测</li>
-<li>Threat : 收集敏感数据</li>
-</ul>
-<h3 id="APT-or-Targeted-Attack"><a href="#APT-or-Targeted-Attack" class="headerlink" title="APT or Targeted Attack ?"></a>APT or Targeted Attack ?</h3><p>APT攻击与传统攻击的主要区别<br><a href="https://imgse.com/i/pPOpBoq"><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://z1.ax1x.com/2023/10/03/pPOpBoq.md.png"
-                      alt="pPOpBoq.md.png"
-                ></a></p>
-<p>如下满足其一则不属于 APT attack：</p>
+    <title>Release or Debug ?</title>
+    <url>/2023/10/10/other/release-vs-debug/</url>
+    <content><![CDATA[<p>前几天在做一个实验的时候用到了 VS2022 的调试器，突然发现用 release 版本下依然可以调试<br>但根据已有的浅显的知识，release 版本是优化后的版本，不会附加任何调试信息，那 VS 又是如何调试的呢？</p>
+<p>百度之后发现说有个叫做 .pdb 的文件，在调试时会装载到文件中，以提供额外的辅助信息</p>
+<p>光说肯定是不行的，为此我需要做几件事来解决我的疑惑：</p>
 <ul>
-<li>攻击有多种预防措施</li>
-<li>攻击者不需要为了防御做过多的准备</li>
-<li>攻击在其变体中没有表现出任何新特性</li>
+<li>对比查看 Debug 和 Release 版本下生成的文件</li>
+<li>查看 .pdb 文件里究竟是什么</li>
+<li>.pdb 是如何被装在使用的</li>
 </ul>
-<p>NIST(National Institute of Standards and Technology)描述的APT攻击的三个目标：</p>
-<ul>
-<li>Steal Organization Data</li>
-<li>Undermine Organization’s Critical Aspects</li>
-<li>Position for Future</li>
-</ul>
-<h3 id="How-APT-attacks-are-made"><a href="#How-APT-attacks-are-made" class="headerlink" title="How APT attacks are made?"></a>How APT attacks are made?</h3><p>APT Attack Tree<br>文章作者归纳了一棵通用攻击树，大概包含APT攻击所需要实施的步骤，并分别根据NIST的三个目标做了细化<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://z1.ax1x.com/2023/10/03/pPOPFds.md.png"
-                      alt="pPOPFds.md.png"
-                ></p>
-<p>在结合了其他文章后，作者归纳了如下流程图：<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://z1.ax1x.com/2023/10/03/pPOPaOe.md.png"
-                      alt="pPOPaOe.md.png"
-                ></p>
-<div class="note-large red"><div class="notel-title"><p>侦察</p>
-</div><div class="notel-content"><p>以被动攻击为主，作为前期情报搜集工作，利用社工、渗透测试等方式，了解网络拓扑以及相关信息，为后期做准备。</p>
-</div></div>
+<h2 id="对比-Debug-和-Release-版本的区别"><a href="#对比-Debug-和-Release-版本的区别" class="headerlink" title="对比 Debug 和 Release 版本的区别"></a>对比 Debug 和 Release 版本的区别</h2><p>为了方便测试，编写如下demo：</p>
+<div class="highlight-container" data-rel="Cpp"><figure class="iseeu highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="type">int</span> a = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++)&#123;</span><br><span class="line">		a++;</span><br><span class="line">	&#125;</span><br><span class="line">	std::cout &lt;&lt; a &lt;&lt; std::endl;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
 
-<div class="note-large red"><div class="notel-title"><p>建立落脚点</p>
-</div><div class="notel-content"><p>在前期侦察过程后，能够发现设施的脆弱性，尝试利用脆弱性干到内网里。通常包括如下手段：</p>
-<ul>
-<li>已知漏洞利用，包括已经在用户端中安装的软件存在的可利用的漏洞</li>
-<li>恶意软件，通过在用户端运行定制开发的恶意软件达到攻击效果</li>
-<li>网络钓鱼，针对特定目标发送钓鱼邮件，负载恶意软件，用户在运行或下载后使攻击者进驻网络</li>
-<li>0day漏洞，程序存在的漏洞，但并未被公开修复，且未被告知，这种利用方式不多但往往很致命</li>
-<li>网络下载</li>
-<li>水坑攻击，字面意思，在目标必经之路上设置陷阱，通常是在目标经常使用的网站中注入陷阱。目标一旦访问该网站，就会下载恶意负载，帮助攻击者进入内网</li>
-</ul>
+<p>编译器选择：<br>电脑上用的 VS2022 集成了 msvc 编译器以及调试器，但由于其项目构建的复杂性以及过大的体量，选择使用VSCode，但编译器仍为 msvc<br>在用 VSCode 扫描可用编译器时，发现了这么多版本：</p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://z1.ax1x.com/2023/10/04/pPOgcCT.md.png"
-                      alt="pPOgcCT.md.png"
+                     data-src="https://z1.ax1x.com/2023/10/10/pPxhUAg.md.png"
+                      alt="pPxhUAg.md.png"
                 ></p>
-<p>攻击者一旦进入到内网中，就会低调行事，尝试建立 C&amp;C (Commadn and Control) 通信通道，以部署后续攻击，在此期间，程序要防止自己被检测工具发现<br>大多数恶意程序通过 DNS 服务来进行定位，以向总部发出自己的位置。</p>
-</div></div>
+<p>x86: 编译器为 x86 版本，输出文件为 x86<br>amd64_x86: 编译器为 amd64 版本，输出文件为 x86<br>amd64: 编译器为 amd64 版本，输出文件为 amd64<br>x86_amd64: 编译器为 x86 版本，输出文件为 amd64</p>
 
-<div class="note-large red"><div class="notel-title"><p>横向探索&#x2F;不被发现</p>
-</div><div class="notel-content"><p>一旦进入目标系统，获得了其访问权限，则可以传播到内网的其他系统中，访问更多资源。<br>有时需要提权、密钥转储等技术以获得给更多信息。具体所选择的方法取决于具体环境。</p>
+  <div class="note p-4 mb-4 rounded-small default">
+    <p>关于 x64 和 amd64</p>
+
+  </div>
+<p>在 64 位指令系统中，有两家公司在做<br>一家是 Intel 推出的IA-64指令集，但不兼容 IA-32（即x86架构使用的）指令集<br>另一家是 AMD 公司推出的 AMD64 指令集，兼容了 IA-32<br>显而易见，IA-64会被淘汰，更何况 IA-64 比 AMD64 出现更晚</p>
+<p>最后Intel也不得不采用 AMD64 指令系统，但换了个名字，叫x86_64架构（屏蔽掉了 AMD 的牌子），简称 x64<br>因此，现在来讲，x86_64、x64、AMD64基本上是一个东西</p>
+<p>不纠结了，选择 amd64 版本的编译器</p>
+
+  <div class="note p-4 mb-4 rounded-small default">
+    <p>使用 VSCode 实验情况</p>
+
+  </div>
+
+<p>使用 Debug 模式下编译生成两个文件：</p>
+<ul>
+<li>main.exe 53 KB</li>
+<li>main.pdb 1116 KB</li>
+</ul>
+<p>使用 Release 模式下编译生成一个文件：</p>
+<ul>
+<li>main.exe 10 KB</li>
+</ul>
+<p>直接比较大小的话，发现 Release 版本明显比 Debug 版本文件小很多</p>
+<p>尝试使用 IDA 逆向:</p>
+<div class="tabs" id="tab-页面内不重复的id"><ul class="nav-tabs"><li class="tab active"><a class="#页面内不重复的id-1">Release 版本</a></li><li class="tab"><a class="#页面内不重复的id-2">Debug 版本</a></li></ul><div class="tab-content"><div class="tab-pane active" id="页面内不重复的id-1"><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://z1.ax1x.com/2023/10/10/pPxjaLQ.md.png"
+                      alt="pPxjaLQ.md.png"
+                ></p>
+<p>Release 版本没有了循环体，通过反编译插件查看反编译后的代码：</p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://z1.ax1x.com/2023/10/04/pPOgJ4f.md.png"
-                      alt="pPOgJ4f.md.png"
+                     data-src="https://z1.ax1x.com/2023/10/10/pPxjvTA.png"
+                      alt="pPxjvTA.png"
                 ></p>
-<p>文章提到了一些密码工具有：mimikatz、Windows Credential Editor<br>(WCE)<br>其核心是在内存中解析并提取 Windows本地安全授权(LSA)</p>
-</div></div>
-
-<div class="note-large red"><div class="notel-title"><p>报告信息&#x2F;实施拦截</p>
-</div><div class="notel-content"><p>攻击者将收集到的数据输出到 C&amp;C 服务器，由于大多数 IDS 仅对入口检测，而不对出口过滤，因此这些泄露可能无法被检测。<br>通常数据泄露会分成多个批次分配到不同IP的主机上。</p>
-</div></div>
-
-<div class="note-large red"><div class="notel-title"><p>后渗透工作</p>
-</div><div class="notel-content"><p>攻击者不单单要考虑渗透成功，还要考虑可持续性，即可以随时解除或保持攻击。同时还要考虑到在攻击过程中的任何一部都有可能被日志记录并作为溯源的依据。</p>
-</div></div>
-
-<div class="note default"><p>关于 C&amp;C (Command and Control Communication)</p>
-</div>
-<p>这是在被攻击主机与发起方进行沟通的隧道，常用的通信协议包括Http(s)、IRC、P2P以及其他自定义协议。<br>由于大多数企业视Http连接合法，并且其他流量具有明显的特征，容易被标记，因此通常采用Http协议。</p>
-<h2 id="Section-Ⅲ-Case-Study"><a href="#Section-Ⅲ-Case-Study" class="headerlink" title="Section Ⅲ : Case Study"></a>Section Ⅲ : Case Study</h2><h2 id="Section-Ⅳ-Defense-Methods"><a href="#Section-Ⅳ-Defense-Methods" class="headerlink" title="Section Ⅳ : Defense Methods"></a>Section Ⅳ : Defense Methods</h2><p>防治 APT 攻击应该以纵深防御原则，即在每一层都设有检测<br>即使攻击者攻破第一层后，还有后面一系列安全措施，不至于功亏一篑</p>
-<p>大概分类如图：</p>
+<p>其实际上相当于直接输出了 100: <code>cout &lt;&lt; 100 &lt;&lt; endl</code></p>
+<p>另外，在没有 .pdb 文件的情况下打断点是程序不会在断点停止，无法调试</p></div><div class="tab-pane" id="页面内不重复的id-2"><p>Debug 版本分为两个文件，main.exe 和 main.pdb<br>在用 IDA 打开 此文件时，会提示 main.exe 链接了 pdb文件，需要辅助打开</p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://z1.ax1x.com/2023/10/05/pPXPaDg.md.png"
-                      alt="pPXPaDg.md.png"
+                     data-src="https://z1.ax1x.com/2023/10/10/pPxjBon.md.png"
+                      alt="pPxjBon.md.png"
                 ></p>
-<ol>
-<li><p>监控 Monitoring<br>包括 磁盘监控（文件&#x2F;CPU占用）、内存监控、流量监控（端口、时间、大小等）、代码审计、日志审计</p>
-</li>
-<li><p>检测 Detection<br>包括 异常检测、模式匹配、</p>
-</li>
-</ol>
-<h4 id="异常检测"><a href="#异常检测" class="headerlink" title="异常检测"></a>异常检测</h4><p>文章列出了目前存在的 APT 的应对策略：<br><img  
+<p>Debug 版本明显有了循环体，对代码没有进行简化</p>
+<p>如果不链接pdb文件，如下：<br><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://z1.ax1x.com/2023/10/05/pPXewh4.md.png"
-                      alt="pPXewh4.md.png"
-                ></p>
-<p>这些手段往往是静态的，攻击者往往会尝试绕过这些检测</p>
-<div class="note red"><p>方法论</p>
-</div>
-<p>Hodge &amp; Austin 将异常检测分为了三类：无监督聚类、有监督分类、半监督学习<br>作者进一步将异常检测方法分为统计异常检测、基于神经网络的异常检测和基于机器学习的异常检测</p>
-<p>Chandola 等人提出了另外两种检测方法：information theoretic anomaly detection 和 spectral anomaly detection techniques<br>（信息理论异常检测技术和光谱异常检测技术）</p>
-<p>Chandola 等人又从离散序列的异常检测出发，将其检测方法分为三类：sequence-based，contiguous sub-sequence based， pattern frequency-based （序列检测、连续序列检测、频率检测）</p>
-<p>Mehmood 等人总结了通过机器学习实现的异常检测系统，包括：SVM、Fuzzy Logic、Genetic Algorithm、K-means、ANN、Association Rule 等方法</p>
-<p>作者列举了ML在异常检测中各阶段的作用以及挑战：<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://z1.ax1x.com/2023/10/05/pPXGy79.md.png"
-                      alt="pPXGy79.md.png"
-                ></p>
-<h4 id="模式匹配"><a href="#模式匹配" class="headerlink" title="模式匹配"></a>模式匹配</h4><p>这是相对较老的技术，通过观察进程和&#x2F;或应用程序的行为模式，可以检测到恶意行为</p>
-<ol start="3">
-<li>Mitigation</li>
-</ol>
-]]></content>
+                     data-src="https://z1.ax1x.com/2023/10/11/pPzy0kn.md.png"
+                      alt="pPzy0kn.md.png"
+                ><br>猜测是由于缺少 pdb 文件中的符号，导致解析出了问题<br>在 IDA 找了一圈后没有发现什么有效的循环体，很奇怪，倒是发现了许多安全信息，类如 security_cookie 之类的字段</p></div></div></div>
+
+<p>在刚才的尝试里发现了在 VSCode 里直接使用其默认配置的 Release 生成方式是不会生成 .pdb 文件的，并不能调试</p>
+<p>这和在 VS2022 里的现象不同，于是又跑回 VS 里生成一遍，发现在 VS2022 里生成了 .pdb 文件，看来应该是生成的配置不同<br>具体配置参见 <a class="link"   href="https://learn.microsoft.com/en-us/visualstudio/debugger/how-to-set-debug-and-release-configurations?view=vs-2022" >Set debug and release configurations in Visual Studio <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>关于更多编译选项如下：<br>Debug</p>
+<ul>
+<li>&#x2F;MDd &#x2F;MLd or&#x2F;MTd: Use run-time library for Debug</li>
+<li>&#x2F;Od: Disable optimization</li>
+<li>&#x2F;D “_DEBUG”: Equals to #define _DEBUG, open code like assert</li>
+<li>&#x2F;ZI: Open Edit and Continue database, allows us to modify code while debugging</li>
+<li>&#x2F;GZ: Enable stack frame Run-Time error checking. deprecated. use &#x2F;RTC instead.<br>Release</li>
+<li>&#x2F;MD &#x2F;ML or&#x2F;MT: Use run-time library for Release</li>
+<li>&#x2F;O1: Minimize size</li>
+<li>&#x2F;O2: Maximize speed</li>
+<li>&#x2F;D “NDEBUG”: Close conditional compilation (don’t compile assert)</li>
+<li>&#x2F;GF: Eliminate duplicate strings and pools strings as read-only. If you try to modify strings under &#x2F;GF, an application error occurs.</li>
+</ul>
+<h2 id="pdb-文件里究竟有什么"><a href="#pdb-文件里究竟有什么" class="headerlink" title=".pdb 文件里究竟有什么"></a>.pdb 文件里究竟有什么</h2>]]></content>
       <categories>
-        <category>论文</category>
+        <category>其他</category>
       </categories>
   </entry>
 </search>
